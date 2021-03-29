@@ -85,7 +85,7 @@ class TableContentsVC: UITableViewController{
 class SubSectionVC: UITableViewController{
     let songs = ["a","b","c","d","e"]
     let cellReuseIdentifier = "cell"
-    let questionTable = TableContentsVC
+    
     override func viewDidLoad() {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         super.viewDidLoad()
