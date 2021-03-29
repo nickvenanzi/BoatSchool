@@ -12,7 +12,7 @@ import CoreXLSX
 class TableContentsVC: UITableViewController{
     
     func excel(){
-        let filepath = "bank.xlsx"
+        let filepath = Bundle.main.path(forResource: "bank", ofType: "xlsx")!
         guard let file = XLSXFile(filepath: filepath) else {
           fatalError("XLSX file at \(filepath) is corrupted or does not exist")
         }
@@ -23,20 +23,22 @@ class TableContentsVC: UITableViewController{
               print("This worksheet has a name: \(worksheetName)")
             }
             let worksheet = try! file.parseWorksheet(at: path)
+         
             for row in worksheet.data?.rows ?? [] {
               for c in row.cells {
                 print(c)
               }
-                if let sharedStrings = try! file.parseSharedStrings() {
-                  let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
-                    .compactMap { $0.stringValue(sharedStrings) }
-                    print(columnCStrings)
-                }
-            }
+                
+            
           }
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+                print(columnCStrings.count)
+            }
         }
     }
-
+    }
     lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0,y: 10,width: .max ,height: 20))
     let cellReuseIdentifier = "cell"
     let sections = ["Steam","Diesel","Electrical","General Subject","Automation"]
@@ -69,6 +71,7 @@ class TableContentsVC: UITableViewController{
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+        excel()
         navigationController?.pushViewController(SubSectionVC(), animated: true)
         
     }
