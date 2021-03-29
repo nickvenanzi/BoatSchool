@@ -132,7 +132,7 @@
 		014E25DA1DB5C81F07E0E1D80CDE1A5E /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/XMLCoder/Auxiliaries/Box/Box.swift; sourceTree = "<group>"; };
 		033E107D40F001E404DF77CD749049BA /* XMLEncoderImplementation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XMLEncoderImplementation.swift; path = Sources/XMLCoder/Encoder/XMLEncoderImplementation.swift; sourceTree = "<group>"; };
 		0373EFFAA9F6B40B9F7D08FC9372675D /* XMLStackParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XMLStackParser.swift; path = Sources/XMLCoder/Auxiliaries/XMLStackParser.swift; sourceTree = "<group>"; };
-		046F8EBDA17AB6C112CD50C22B380931 /* Pods_BoatSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BoatSchool.framework; path = "Pods-BoatSchool.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		046F8EBDA17AB6C112CD50C22B380931 /* Pods_BoatSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoatSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		065A5F4BB205BE51ACDC3D3621B8A1D1 /* Pods-BoatSchool-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BoatSchool-frameworks.sh"; sourceTree = "<group>"; };
 		08CA085CE16FCF6FC8524074E1FAAB49 /* DecodingErrorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DecodingErrorExtension.swift; path = Sources/XMLCoder/Decoder/DecodingErrorExtension.swift; sourceTree = "<group>"; };
 		0B42E04CF64D802CDCE1AA84A19D40C4 /* XMLKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XMLKey.swift; path = Sources/XMLCoder/Auxiliaries/XMLKey.swift; sourceTree = "<group>"; };
@@ -154,13 +154,13 @@
 		35C4C78CCB11894EFD280B981BE1B0B6 /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "Sources/XMLCoder/Auxiliaries/String+Extensions.swift"; sourceTree = "<group>"; };
 		36A7324A588277EB8638C3841352ABD7 /* ZIPFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZIPFoundation.debug.xcconfig; sourceTree = "<group>"; };
 		3D6EA1040026AB229AD94806E5C3ACC7 /* Styles.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Styles.swift; path = Sources/CoreXLSX/Styles.swift; sourceTree = "<group>"; };
-		3F616D3E24543D97C200EBBCFDF225D0 /* XMLCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XMLCoder.framework; path = XMLCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F616D3E24543D97C200EBBCFDF225D0 /* XMLCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XMLCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7D908B154EA3A9A57F6C243CCD6D9A /* XLSXFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XLSXFile.swift; path = Sources/CoreXLSX/XLSXFile.swift; sourceTree = "<group>"; };
 		41A2B63E66EDBA0A309549088830190C /* XMLCoder-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XMLCoder-Info.plist"; sourceTree = "<group>"; };
 		42B4681D27551964A6D25D203DD1143C /* XMLHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XMLHeader.swift; path = Sources/XMLCoder/Auxiliaries/XMLHeader.swift; sourceTree = "<group>"; };
 		42FF29861E354C0D9FF35AC08FB36DE5 /* Data+Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Compression.swift"; path = "Sources/ZIPFoundation/Data+Compression.swift"; sourceTree = "<group>"; };
 		43ADF30C3951F16E544EC2D265C40032 /* CellQueries.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CellQueries.swift; path = Sources/CoreXLSX/Worksheet/CellQueries.swift; sourceTree = "<group>"; };
-		48A4A6EDC08C8AC933D0DCD507E9D173 /* ZIPFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ZIPFoundation.framework; path = ZIPFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48A4A6EDC08C8AC933D0DCD507E9D173 /* ZIPFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZIPFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7D3C709859CDD8368B0ECBDE46FF17 /* XMLCoder.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XMLCoder.modulemap; sourceTree = "<group>"; };
 		4D07B90F4C16D575EB1F371F6A18873A /* CoreXLSX-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoreXLSX-prefix.pch"; sourceTree = "<group>"; };
 		52EEC3AC2F6D8004913F5C62B5260573 /* FloatBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatBox.swift; path = Sources/XMLCoder/Auxiliaries/Box/FloatBox.swift; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 		9227FB00DA4CBA6F73DD2733C661EF99 /* XMLDecodingStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XMLDecodingStorage.swift; path = Sources/XMLCoder/Decoder/XMLDecodingStorage.swift; sourceTree = "<group>"; };
 		9B1FB5EAD04578BE734764DC1AC34D28 /* CoreXLSX.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CoreXLSX.modulemap; sourceTree = "<group>"; };
 		9B719AFDE3A0B45A7290A9764D48C1A7 /* ChoiceBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChoiceBox.swift; path = Sources/XMLCoder/Auxiliaries/Box/ChoiceBox.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A2CDAEA43F81778AAA3120A9A8AE5084 /* XMLKeyedEncodingContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XMLKeyedEncodingContainer.swift; path = Sources/XMLCoder/Encoder/XMLKeyedEncodingContainer.swift; sourceTree = "<group>"; };
 		A2FDD621E092B9BBF605FE5AA821ABC3 /* Metatypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Metatypes.swift; path = Sources/XMLCoder/Auxiliaries/Metatypes.swift; sourceTree = "<group>"; };
 		A40BD6F829D1CD7CB1BDBA6BB66A7BFD /* XMLCoder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XMLCoder-dummy.m"; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 		EA0457039ECB975D0F4C05BCA956EBDC /* Pods-BoatSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BoatSchool.release.xcconfig"; sourceTree = "<group>"; };
 		EAD36D4E4BD888C36304C08AAE1210F7 /* Pods-BoatSchool-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BoatSchool-dummy.m"; sourceTree = "<group>"; };
 		F311218D4A2C0BBE0C0F485F77EBD34D /* XMLEncodingStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XMLEncodingStorage.swift; path = Sources/XMLCoder/Encoder/XMLEncodingStorage.swift; sourceTree = "<group>"; };
-		F7697CE4600AFF04DD7B37AB9EDFFC00 /* CoreXLSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CoreXLSX.framework; path = CoreXLSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7697CE4600AFF04DD7B37AB9EDFFC00 /* CoreXLSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreXLSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC44719A2694E162A60C1501FE31702 /* Archive+Reading.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Archive+Reading.swift"; path = "Sources/ZIPFoundation/Archive+Reading.swift"; sourceTree = "<group>"; };
 		FFE8564F7A0B407CF0F35A4BF846137D /* DecimalBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DecimalBox.swift; path = Sources/XMLCoder/Auxiliaries/Box/DecimalBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -304,7 +304,6 @@
 				3F7D908B154EA3A9A57F6C243CCD6D9A /* XLSXFile.swift */,
 				724655D506F006C2F944142C3D3A9601 /* Support Files */,
 			);
-			name = CoreXLSX;
 			path = CoreXLSX;
 			sourceTree = "<group>";
 		};
@@ -369,7 +368,6 @@
 				53B94C11EE2A38677C5A1A2C727FA087 /* XMLUnkeyedEncodingContainer.swift */,
 				B8FAA424BCB7C54537BF2352193C604F /* Support Files */,
 			);
-			name = XMLCoder;
 			path = XMLCoder;
 			sourceTree = "<group>";
 		};
@@ -481,7 +479,6 @@
 				DA84C273BE8A2C393F7F5C706C9705B5 /* FileManager+ZIP.swift */,
 				23E469B7B297EE01A7445FDFA4040836 /* Support Files */,
 			);
-			name = ZIPFoundation;
 			path = ZIPFoundation;
 			sourceTree = "<group>";
 		};
@@ -1046,7 +1043,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CoreXLSX/CoreXLSX-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CoreXLSX/CoreXLSX-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1189,7 +1186,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CoreXLSX/CoreXLSX-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CoreXLSX/CoreXLSX-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

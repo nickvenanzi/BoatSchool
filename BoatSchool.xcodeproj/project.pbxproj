@@ -3,19 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		862FF62D2610F33A00213F94 /* bank.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 862FF62C2610F33A00213F94 /* bank.xlsx */; };
+		862FF6322610F85A00213F94 /* excelReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FF6312610F85A00213F94 /* excelReader.swift */; };
+		862FF64226112B6A00213F94 /* TableContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FF64126112B6A00213F94 /* TableContentsVC.swift */; };
 		866EEF83260FCAFA00BA2689 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EEF82260FCAFA00BA2689 /* AppDelegate.swift */; };
 		866EEF85260FCAFA00BA2689 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EEF84260FCAFA00BA2689 /* SceneDelegate.swift */; };
-		866EEF87260FCAFA00BA2689 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EEF86260FCAFA00BA2689 /* ViewController.swift */; };
 		866EEF8A260FCAFA00BA2689 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866EEF88260FCAFA00BA2689 /* Main.storyboard */; };
 		866EEF8C260FCAFC00BA2689 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 866EEF8B260FCAFC00BA2689 /* Assets.xcassets */; };
 		866EEF8F260FCAFC00BA2689 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866EEF8D260FCAFC00BA2689 /* LaunchScreen.storyboard */; };
 		866EEF9A260FCAFC00BA2689 /* BoatSchoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EEF99260FCAFC00BA2689 /* BoatSchoolTests.swift */; };
 		866EEFA5260FCAFC00BA2689 /* BoatSchoolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EEFA4260FCAFC00BA2689 /* BoatSchoolUITests.swift */; };
-		866EEFB6260FCFDE00BA2689 /* FILE_1100.csv in Resources */ = {isa = PBXBuildFile; fileRef = 866EEFB5260FCFDE00BA2689 /* FILE_1100.csv */; };
 		E7B825517E1C711B4589598E /* Pods_BoatSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3A352171F0F55D88403557 /* Pods_BoatSchool.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,10 +39,12 @@
 
 /* Begin PBXFileReference section */
 		5D3A352171F0F55D88403557 /* Pods_BoatSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoatSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		862FF62C2610F33A00213F94 /* bank.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = bank.xlsx; sourceTree = "<group>"; };
+		862FF6312610F85A00213F94 /* excelReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = excelReader.swift; sourceTree = "<group>"; };
+		862FF64126112B6A00213F94 /* TableContentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContentsVC.swift; sourceTree = "<group>"; };
 		866EEF7F260FCAFA00BA2689 /* BoatSchool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatSchool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		866EEF82260FCAFA00BA2689 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		866EEF84260FCAFA00BA2689 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		866EEF86260FCAFA00BA2689 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		866EEF89260FCAFA00BA2689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		866EEF8B260FCAFC00BA2689 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		866EEF8E260FCAFC00BA2689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		866EEFA0260FCAFC00BA2689 /* BoatSchoolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatSchoolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		866EEFA4260FCAFC00BA2689 /* BoatSchoolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatSchoolUITests.swift; sourceTree = "<group>"; };
 		866EEFA6260FCAFC00BA2689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		866EEFB5260FCFDE00BA2689 /* FILE_1100.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FILE_1100.csv; sourceTree = "<group>"; };
 		BA0C0F06C5D5D5E3F32816FD /* Pods-BoatSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoatSchool.debug.xcconfig"; path = "Target Support Files/Pods-BoatSchool/Pods-BoatSchool.debug.xcconfig"; sourceTree = "<group>"; };
 		BAD17840FA95EB32CD9BD424 /* Pods-BoatSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoatSchool.release.xcconfig"; path = "Target Support Files/Pods-BoatSchool/Pods-BoatSchool.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,7 +99,6 @@
 				BA0C0F06C5D5D5E3F32816FD /* Pods-BoatSchool.debug.xcconfig */,
 				BAD17840FA95EB32CD9BD424 /* Pods-BoatSchool.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -128,9 +129,10 @@
 			children = (
 				866EEF82260FCAFA00BA2689 /* AppDelegate.swift */,
 				866EEF84260FCAFA00BA2689 /* SceneDelegate.swift */,
-				866EEF86260FCAFA00BA2689 /* ViewController.swift */,
-				866EEFB5260FCFDE00BA2689 /* FILE_1100.csv */,
+				862FF62C2610F33A00213F94 /* bank.xlsx */,
+				862FF64126112B6A00213F94 /* TableContentsVC.swift */,
 				866EEF88260FCAFA00BA2689 /* Main.storyboard */,
+				862FF6312610F85A00213F94 /* excelReader.swift */,
 				866EEF8B260FCAFC00BA2689 /* Assets.xcassets */,
 				866EEF8D260FCAFC00BA2689 /* LaunchScreen.storyboard */,
 				866EEF90260FCAFC00BA2689 /* Info.plist */,
@@ -261,7 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				866EEFB6260FCFDE00BA2689 /* FILE_1100.csv in Resources */,
+				862FF62D2610F33A00213F94 /* bank.xlsx in Resources */,
 				866EEF8F260FCAFC00BA2689 /* LaunchScreen.storyboard in Resources */,
 				866EEF8C260FCAFC00BA2689 /* Assets.xcassets in Resources */,
 				866EEF8A260FCAFA00BA2689 /* Main.storyboard in Resources */,
@@ -331,8 +333,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				866EEF87260FCAFA00BA2689 /* ViewController.swift in Sources */,
+				862FF6322610F85A00213F94 /* excelReader.swift in Sources */,
 				866EEF83260FCAFA00BA2689 /* AppDelegate.swift in Sources */,
+				862FF64226112B6A00213F94 /* TableContentsVC.swift in Sources */,
 				866EEF85260FCAFA00BA2689 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT3MWZH387;
 				INFOPLIST_FILE = BoatSchool/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,6 +537,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT3MWZH387;
 				INFOPLIST_FILE = BoatSchool/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
