@@ -11,8 +11,8 @@ import CoreXLSX
 
 class TableContentsVC: UITableViewController{
     
-    var questionTable: [[String]] = []
-    
+    static var questionTable: [[String]] = []
+  
     /*
      Loads in CSV data into questionTable. To retrieve a particular question, call:
      
@@ -22,7 +22,12 @@ class TableContentsVC: UITableViewController{
      
      let imageURL: String = questionTable[i][1]
      */
-    func loadTableData(){
+    static func loadTableData(){
+        // checks if questionTable is nonempty, aka if data has already been loaded
+        guard questionTable.isEmpty else {
+            return
+        }
+        
         let filepath = Bundle.main.path(forResource: "bank", ofType: "csv")!
         
         do {
@@ -30,10 +35,9 @@ class TableContentsVC: UITableViewController{
             let listOfRows: [String] = content.components(
                 separatedBy: "\r\n"
             )
-            questionTable = listOfRows.compactMap { (row) -> [String] in
+            TableContentsVC.questionTable = listOfRows.compactMap { (row) -> [String] in
                 row.components(separatedBy: ",")
             }
-            print(questionTable[4][0])
         }
         catch {
             fatalError("Failed to parse bank data")
@@ -46,7 +50,7 @@ class TableContentsVC: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadTableData()
+        TableContentsVC.loadTableData()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
