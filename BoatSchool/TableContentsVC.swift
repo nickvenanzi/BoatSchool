@@ -72,6 +72,7 @@ class TableContentsVC: UITableViewController{
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+        excel()
         navigationController?.pushViewController(SubSectionVC(), animated: true)
         
     }
