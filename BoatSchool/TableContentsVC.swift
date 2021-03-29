@@ -33,12 +33,12 @@ class TableContentsVC: UITableViewController{
             questionTable = listOfRows.compactMap { (row) -> [String] in
                 row.components(separatedBy: ",")
             }
+            print(questionTable[4][0])
         }
         catch {
             fatalError("Failed to parse bank data")
         }
     }
-
 
     lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0,y: 10,width: .max ,height: 20))
     let cellReuseIdentifier = "cell"
@@ -72,8 +72,8 @@ class TableContentsVC: UITableViewController{
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
-        excel()
         navigationController?.pushViewController(SubSectionVC(), animated: true)
+        
         
     }
 }
@@ -81,12 +81,14 @@ class TableContentsVC: UITableViewController{
 class SubSectionVC: UITableViewController{
     let songs = ["a","b","c","d","e"]
     let cellReuseIdentifier = "cell"
+    let questionTable = TableContentsVC
     override func viewDidLoad() {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         super.viewDidLoad()
         self.navigationItem.title = "Sub Sections"
         tableView.delegate = self
         tableView.dataSource = self
+        
 
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
