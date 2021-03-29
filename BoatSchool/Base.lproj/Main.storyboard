@@ -15,6 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="j3X-4U-6Kv">
+                            <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="buttonPressed:" destination="24r-wY-Rva" eventType="touchUpInside" id="crW-c6-7Hh"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ow2-Pg-HwA">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>

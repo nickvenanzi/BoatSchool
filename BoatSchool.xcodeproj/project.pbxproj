@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		862FF62D2610F33A00213F94 /* bank.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 862FF62C2610F33A00213F94 /* bank.xlsx */; };
+		159837D126116787000954C0 /* bank.csv in Resources */ = {isa = PBXBuildFile; fileRef = 159837D026116787000954C0 /* bank.csv */; };
 		862FF6322610F85A00213F94 /* excelReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FF6312610F85A00213F94 /* excelReader.swift */; };
 		862FF64226112B6A00213F94 /* TableContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FF64126112B6A00213F94 /* TableContentsVC.swift */; };
 		866EEF83260FCAFA00BA2689 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EEF82260FCAFA00BA2689 /* AppDelegate.swift */; };
@@ -38,8 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		159837D026116787000954C0 /* bank.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = bank.csv; path = "../../../TxtToExcelScript/CG Questions/bank.csv"; sourceTree = "<group>"; };
 		5D3A352171F0F55D88403557 /* Pods_BoatSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoatSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		862FF62C2610F33A00213F94 /* bank.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = bank.xlsx; sourceTree = "<group>"; };
 		862FF6312610F85A00213F94 /* excelReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = excelReader.swift; sourceTree = "<group>"; };
 		862FF64126112B6A00213F94 /* TableContentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContentsVC.swift; sourceTree = "<group>"; };
 		866EEF7F260FCAFA00BA2689 /* BoatSchool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatSchool.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +129,7 @@
 			children = (
 				866EEF82260FCAFA00BA2689 /* AppDelegate.swift */,
 				866EEF84260FCAFA00BA2689 /* SceneDelegate.swift */,
-				862FF62C2610F33A00213F94 /* bank.xlsx */,
+				159837D026116787000954C0 /* bank.csv */,
 				862FF64126112B6A00213F94 /* TableContentsVC.swift */,
 				866EEF88260FCAFA00BA2689 /* Main.storyboard */,
 				862FF6312610F85A00213F94 /* excelReader.swift */,
@@ -263,8 +263,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				862FF62D2610F33A00213F94 /* bank.xlsx in Resources */,
 				866EEF8F260FCAFC00BA2689 /* LaunchScreen.storyboard in Resources */,
+				159837D126116787000954C0 /* bank.csv in Resources */,
 				866EEF8C260FCAFC00BA2689 /* Assets.xcassets in Resources */,
 				866EEF8A260FCAFA00BA2689 /* Main.storyboard in Resources */,
 			);

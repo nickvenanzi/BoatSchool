@@ -11,31 +11,34 @@ import CoreXLSX
 
 class TableContentsVC: UITableViewController{
     
-    func excel(){
-        let filepath = "bank.xlsx"
-        guard let file = XLSXFile(filepath: filepath) else {
-          fatalError("XLSX file at \(filepath) is corrupted or does not exist")
+    var questionTable: [[String]] = []
+    
+    /*
+     Loads in CSV data into questionTable. To retrieve a particular question, call:
+     
+     questionTable[i] for question i, 0 <= i < 11828
+     
+     To retrieve cell data, index into questionTable[i] with index j as follows:
+     
+     let imageURL: String = questionTable[i][1]
+     */
+    func loadTableData(){
+        let filepath = Bundle.main.path(forResource: "bank", ofType: "csv")!
+        
+        do {
+            let content = try String(contentsOfFile: filepath)
+            let listOfRows: [String] = content.components(
+                separatedBy: "\r\n"
+            )
+            questionTable = listOfRows.compactMap { (row) -> [String] in
+                row.components(separatedBy: ",")
+            }
         }
-
-        for wbk in try! file.parseWorkbooks() {
-          for (name, path) in try! file.parseWorksheetPathsAndNames(workbook: wbk) {
-            if let worksheetName = name {
-              print("This worksheet has a name: \(worksheetName)")
-            }
-            let worksheet = try! file.parseWorksheet(at: path)
-            for row in worksheet.data?.rows ?? [] {
-              for c in row.cells {
-                print(c)
-              }
-                if let sharedStrings = try! file.parseSharedStrings() {
-                  let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
-                    .compactMap { $0.stringValue(sharedStrings) }
-                    print(columnCStrings)
-                }
-            }
-          }
+        catch {
+            fatalError("Failed to parse bank data")
         }
     }
+
 
     lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0,y: 10,width: .max ,height: 20))
     let cellReuseIdentifier = "cell"
@@ -43,7 +46,7 @@ class TableContentsVC: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadTableData()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
