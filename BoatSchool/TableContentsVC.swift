@@ -12,6 +12,7 @@ import CoreXLSX
 class TableContentsVC: UITableViewController{
     
     static var questionTable: [[String]] = []
+    static var subjectPicked: Int = 0
   
     /*
      Loads in CSV data into questionTable. To retrieve a particular question, call:
@@ -46,7 +47,6 @@ class TableContentsVC: UITableViewController{
 
     lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0,y: 10,width: .max ,height: 20))
     let cellReuseIdentifier = "cell"
-    let sections = ["Steam","Diesel","Electrical","General Subject","Automation"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,49 +61,69 @@ class TableContentsVC: UITableViewController{
         self.navigationItem.leftBarButtonItem = leftNavBarButton
 
     }
+    //Determines the row count
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sections.count
+        return Contents.subjects.count
     }
+    //Row Height
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    //Sets the Cells for the initial screen of main subjects
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
-        cell.textLabel?.text = self.sections[indexPath.row]
+        cell.textLabel?.text = Contents.subjects[indexPath.row]
         cell.textLabel?.font = .boldSystemFont(ofSize: 20)
         return cell
     }
+    //Function for selecting a row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+        TableContentsVC.subjectPicked = indexPath.row
         navigationController?.pushViewController(SubSectionVC(), animated: true)
-        
-        
     }
 }
 
 class SubSectionVC: UITableViewController{
-    let songs = ["a","b","c","d","e"]
     let cellReuseIdentifier = "cell"
-    let questionTable = TableContentsVC
+    var subjectNumber: Int = 0
+    var subjectsTitles: [String] = []
+    
     override func viewDidLoad() {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         super.viewDidLoad()
         self.navigationItem.title = "Sub Sections"
         tableView.delegate = self
         tableView.dataSource = self
+        didSelectSubject()
         
 
     }
+    func didSelectSubject(){
+        subjectNumber = TableContentsVC.subjectPicked
+        print(subjectNumber)
+        //This code sets the data for the Sub Sections
+        if subjectNumber == 0 {
+            subjectsTitles = Contents.generalSubjectsSubs
+            return
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songs.count
+        return subjectsTitles.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
         
-        cell.textLabel?.text = self.songs[indexPath.row]
+        cell.textLabel?.text = subjectsTitles[indexPath.row]
         cell.backgroundColor = .clear
         
         return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You tapped cell number \(indexPath.row).")
+        navigationController?.pushViewController(QuestionsVC(), animated: true)
+
     }
 }
