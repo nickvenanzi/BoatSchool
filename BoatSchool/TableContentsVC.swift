@@ -12,7 +12,9 @@ import CoreXLSX
 class TableContentsVC: UITableViewController{
     
     static var questionTable: [[String]] = []
-    static var subjectPicked: Int = 0
+    static var subjectIntPicked: Int = 0
+    static var subjectStringPicked: String = ""
+    
   
     /*
      Loads in CSV data into questionTable. To retrieve a particular question, call:
@@ -80,7 +82,7 @@ class TableContentsVC: UITableViewController{
     //Function for selecting a row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
-        TableContentsVC.subjectPicked = indexPath.row
+        TableContentsVC.subjectIntPicked = indexPath.row
         navigationController?.pushViewController(SubSectionVC(), animated: true)
     }
 }
@@ -101,7 +103,7 @@ class SubSectionVC: UITableViewController{
 
     }
     func didSelectSubject(){
-        subjectNumber = TableContentsVC.subjectPicked
+        subjectNumber = TableContentsVC.subjectIntPicked
         print(subjectNumber)
         //This code sets the data for the Sub Sections
         if subjectNumber == 0 {
@@ -121,9 +123,12 @@ class SubSectionVC: UITableViewController{
         
         return cell
     }
+    //Goes to first question and resets the first question number to 0 in preperation for bounds 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+        TableContentsVC.subjectStringPicked = Contents.generalSubjectsSubs[indexPath.row]
+        print(TableContentsVC.subjectStringPicked)
+        QuestionsVC.firstQuestion = 0
         navigationController?.pushViewController(QuestionsVC(), animated: true)
-
     }
 }

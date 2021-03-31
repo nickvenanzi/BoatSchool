@@ -1,17 +1,14 @@
 //
-//  ButtonsCell.swift
+//  ReturnCell.swift
 //  BoatSchool
 //
-//  Created by Zach Venanzi on 3/29/21.
+//  Created by Zach Venanzi on 3/30/21.
 //
 
 import UIKit
 
-class ButtonsCell: UITableViewCell {
+class ReturnCell: UITableViewCell {
 
-    @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var progressView: UIProgressView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

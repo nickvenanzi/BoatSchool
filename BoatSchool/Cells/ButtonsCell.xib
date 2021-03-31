@@ -26,14 +26,6 @@
                                     <constraint firstAttribute="width" constant="150" id="TxQ-Xw-OXB"/>
                                 </constraints>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ZC-sw-6JY">
-                                <rect key="frame" x="51" y="32.5" width="25" height="22"/>
-                                <state key="normal" image="forward.fill" catalog="system"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fn4-wN-pnP">
-                                <rect key="frame" x="234" y="32.5" width="23" height="22"/>
-                                <state key="normal" image="folder.fill" catalog="system"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TI4-8M-UFi">
                                 <rect key="frame" x="139" y="33" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -43,16 +35,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1ZC-sw-6JY" firstAttribute="centerY" secondItem="fBd-k2-uFu" secondAttribute="centerY" id="1i8-Su-o2Z"/>
                             <constraint firstItem="0u5-Sy-Akq" firstAttribute="top" secondItem="TI4-8M-UFi" secondAttribute="bottom" constant="6" id="6Cg-TC-bPk"/>
-                            <constraint firstItem="Fn4-wN-pnP" firstAttribute="centerY" secondItem="fBd-k2-uFu" secondAttribute="centerY" id="6rW-Cm-Asx"/>
                             <constraint firstItem="TI4-8M-UFi" firstAttribute="centerX" secondItem="fBd-k2-uFu" secondAttribute="centerX" id="Bt3-Uk-LEr"/>
-                            <constraint firstItem="TI4-8M-UFi" firstAttribute="leading" secondItem="1ZC-sw-6JY" secondAttribute="trailing" constant="63" id="P0d-Xd-kzW"/>
                             <constraint firstItem="0u5-Sy-Akq" firstAttribute="centerX" secondItem="fBd-k2-uFu" secondAttribute="centerX" id="ci5-Tw-Pv2"/>
                             <constraint firstItem="TI4-8M-UFi" firstAttribute="centerY" secondItem="fBd-k2-uFu" secondAttribute="centerY" id="fsX-qn-Lvs"/>
-                            <constraint firstItem="Fn4-wN-pnP" firstAttribute="centerY" secondItem="fBd-k2-uFu" secondAttribute="centerY" id="llj-aR-BA4"/>
-                            <constraint firstItem="1ZC-sw-6JY" firstAttribute="centerY" secondItem="fBd-k2-uFu" secondAttribute="centerY" id="qGm-5t-ysu"/>
-                            <constraint firstItem="Fn4-wN-pnP" firstAttribute="leading" secondItem="TI4-8M-UFi" secondAttribute="trailing" constant="53" id="tO8-v7-vgJ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -66,15 +52,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="countLabel" destination="TI4-8M-UFi" id="6X7-3Q-o1P"/>
-                <outlet property="pictureButton" destination="Fn4-wN-pnP" id="4Tw-6L-dbd"/>
                 <outlet property="progressView" destination="0u5-Sy-Akq" id="k5V-uV-i9a"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="61.941964285714285"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="folder.fill" catalog="system" width="128" height="97"/>
-        <image name="forward.fill" catalog="system" width="128" height="79"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

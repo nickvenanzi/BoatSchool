@@ -101,6 +101,8 @@ struct Contents {
         "Training",
         "Leadership, Managment, ERM",
         "Calculations"]
+    static var testKeys = [
+        "Blueprints": [1...56],
+        "Drawing": [57...93],
+        "Piping": [94...146]]
 }
-
-
