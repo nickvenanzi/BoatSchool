@@ -12,8 +12,8 @@ import CoreXLSX
 class TableContentsVC: UITableViewController{
     
     static var questionTable: [[String]] = []
-    static var subjectIntPicked: Int = 0
-    static var subjectStringPicked: String = ""
+    var subjectIntPicked: Int = 0
+    var subjectStringPicked: String = ""
     
   
     /*
@@ -82,7 +82,7 @@ class TableContentsVC: UITableViewController{
     //Function for selecting a row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
-        TableContentsVC.subjectIntPicked = indexPath.row
+        subjectIntPicked = indexPath.row
         navigationController?.pushViewController(SubSectionVC(), animated: true)
     }
 }
