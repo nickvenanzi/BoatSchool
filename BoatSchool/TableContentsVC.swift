@@ -88,6 +88,7 @@ class TableContentsVC: UITableViewController{
 }
 
 class SubSectionVC: UITableViewController{
+    
     let cellReuseIdentifier = "cell"
     var subjectNumber: Int = 0
     var subjectsTitles: [String] = []
