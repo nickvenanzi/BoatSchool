@@ -14,6 +14,7 @@ class QuestionsVC: UITableViewController{
     static var lowerBound = 0
     static var correctAnswer = 0
     var answerString = ""
+    static var questionData = [[""]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +28,11 @@ class QuestionsVC: UITableViewController{
         tableView.register(UINib(nibName: "AnswerCell", bundle: nil), forCellReuseIdentifier: "AnswerCell")
         tableView.register(UINib(nibName: "ButtonsCell", bundle: nil), forCellReuseIdentifier: "ButtonsCell")
         tableView.register(UINib(nibName: "ReturnCell", bundle: nil), forCellReuseIdentifier: "ReturnCell")
+        tableView.register(UINib(nibName: "StudyCell", bundle: nil), forCellReuseIdentifier: "StudyCell")
+
 
         tableView.separatorStyle = .none
-        tableView.isScrollEnabled = false
+        tableView.isScrollEnabled = true
     }
     //sets the range 
     func didSelectRange(){
@@ -45,73 +48,29 @@ class QuestionsVC: UITableViewController{
     }
     func identifyCorrectAnswer(){
         var correctAnswer = TableContentsVC.questionTable[QuestionsVC.firstQuestion][7]
+        
         QuestionsVC.correctAnswer = Int(correctAnswer) ?? 0
         print(correctAnswer)
         print(QuestionsVC.correctAnswer)
     }
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return QuestionsVC.upperBound-QuestionsVC.lowerBound
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let questionCell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell", for: indexPath) as! QuestionCell
-            let answerCell = tableView.dequeueReusableCell(withIdentifier: "AnswerCell", for: indexPath) as! AnswerCell
-            let buttonsCell = tableView.dequeueReusableCell(withIdentifier: "ButtonsCell", for: indexPath) as! ButtonsCell
-            let returnCell = tableView.dequeueReusableCell(withIdentifier: "ReturnCell", for: indexPath) as! ReturnCell
+        
+        let studyCell = tableView.dequeueReusableCell(withIdentifier: "StudyCell", for: indexPath) as! StudyCell
+        let ReturnCell = tableView.dequeueReusableCell(withIdentifier: "ReturnCell", for: indexPath) as! ReturnCell
             
-            if indexPath.row == 0{
-                questionCell.mainQuestionLabel.text = TableContentsVC.questionTable[QuestionsVC.firstQuestion][0]
-                questionCell.mesbLabel.text = "MESB \(QuestionsVC.firstQuestion)"
-                return questionCell
-            }
-            if indexPath.row == 1 {
-                return buttonsCell
-            }
-            if indexPath.row == 2 {
-                answerCell.answerLabel.text = "A. \(TableContentsVC.questionTable[QuestionsVC.firstQuestion][2])"
-                if indexPath.row == QuestionsVC.correctAnswer+1{
-                    answerCell.selectionStyle = .blue
-                }
-                else{
-                    answerCell.selectionStyle = .none
-                }
-                return answerCell
-            }
-            if indexPath.row == 3 {
-                answerCell.answerLabel.text = "B. \( TableContentsVC.questionTable[QuestionsVC.firstQuestion][3])"
-                if indexPath.row == QuestionsVC.correctAnswer+1{
-                    answerCell.selectionStyle = .blue
-                }
-                else{
-                    answerCell.selectionStyle = .none
-                }
-                return answerCell
-            }
-           if indexPath.row == 4 {
-            answerCell.answerLabel.text = "C. \(TableContentsVC.questionTable[QuestionsVC.firstQuestion][4])"
-                if indexPath.row == QuestionsVC.correctAnswer+1{
-                    answerCell.selectionStyle = .blue
-                }
-                else{
-                    answerCell.selectionStyle = .none
-                }
-                return answerCell
-            }
-            if indexPath.row == 5{
-                answerCell.answerLabel.text =
-                    "D. \(TableContentsVC.questionTable[QuestionsVC.firstQuestion][5])"
-                if indexPath.row == QuestionsVC.correctAnswer+1{
-                    answerCell.selectionStyle = .blue
-                }
-                else{
-                    answerCell.selectionStyle = .none
-                }
-                return answerCell
-            }
-            if indexPath.row == 6{
-                return returnCell
-            }
-        print(TableContentsVC.questionTable[1])
-        return answerCell
+            StudyCell.questionDescription = TableContentsVC.questionTable[QuestionsVC.firstQuestion][0]
+            StudyCell.questionAnswerOne = TableContentsVC.questionTable[QuestionsVC.firstQuestion][2]
+            StudyCell.questionAnswerTwo = TableContentsVC.questionTable[QuestionsVC.firstQuestion][3]
+            StudyCell.questionAnswerThree = TableContentsVC.questionTable[QuestionsVC.firstQuestion][4]
+            StudyCell.questionAnswerFour = TableContentsVC.questionTable[QuestionsVC.firstQuestion][5]
+           
+        
+        return studyCell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 6{
