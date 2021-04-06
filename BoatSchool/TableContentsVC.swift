@@ -12,10 +12,8 @@ import CoreXLSX
 class TableContentsVC: UITableViewController{
     
     static var questionTable: [[String]] = []
-    var subjectIntPicked: Int = 0
-    var subjectStringPicked: String = ""
-    
-  
+    var subjectPicked: Int = 0
+     
     /*
      Loads in CSV data into questionTable. To retrieve a particular question, call:
      
@@ -38,7 +36,7 @@ class TableContentsVC: UITableViewController{
             let listOfRows: [String] = content.components(
                 separatedBy: "\r\n"
             )
-            TableContentsVC.questionTable = listOfRows.compactMap { (row) -> [String] in
+            questionTable = listOfRows.compactMap { (row) -> [String] in
                 row.components(separatedBy: ",")
             }
         }
@@ -47,8 +45,8 @@ class TableContentsVC: UITableViewController{
         }
     }
 
-    lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0,y: 10,width: .max ,height: 20))
-    let cellReuseIdentifier = "cell"
+//    lazy var searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0,y: 10,width: .max ,height: 20))
+    let cellReuseIdentifier = "chapterCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,19 +56,21 @@ class TableContentsVC: UITableViewController{
         tableView.dataSource = self
         
         navigationItem.title = "Sections"
-        searchBar.placeholder = "Search"
-        let leftNavBarButton = UIBarButtonItem(customView: searchBar)
-        self.navigationItem.leftBarButtonItem = leftNavBarButton
-
+//        searchBar.placeholder = "Search"
+//        let leftNavBarButton = UIBarButtonItem(customView: searchBar)
+//        self.navigationItem.leftBarButtonItem = leftNavBarButton
     }
+    
     //Determines the row count
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Contents.subjects.count
     }
+    
     //Row Height
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    
     //Sets the Cells for the initial screen of main subjects
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -79,57 +79,35 @@ class TableContentsVC: UITableViewController{
         cell.textLabel?.font = .boldSystemFont(ofSize: 20)
         return cell
     }
+    
     //Function for selecting a row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
-        subjectIntPicked = indexPath.row
-        navigationController?.pushViewController(SubSectionVC(), animated: true)
-    }
-}
-
-class SubSectionVC: UITableViewController{
-    
-    let cellReuseIdentifier = "cell"
-    var subjectNumber: Int = 0
-    var subjectsTitles: [String] = []
-    
-    override func viewDidLoad() {
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        super.viewDidLoad()
-        self.navigationItem.title = "Sub Sections"
-        tableView.delegate = self
-        tableView.dataSource = self
-        didSelectSubject()
-        
-
-    }
-    func didSelectSubject(){
-        subjectNumber = TableContentsVC.subjectIntPicked
-        print(subjectNumber)
-        //This code sets the data for the Sub Sections
-        if subjectNumber == 0 {
-            subjectsTitles = Contents.generalSubjectsSubs
-            return
+        let subjectTitles: [Section]
+        switch (indexPath.row) {
+            case 0:
+                subjectTitles = Contents.generalSubjectsSubs
+//            case 1:
+//                subjectTitles = Contents.whatever
+    //        case 2:
+    //            subjectTitles =
+    //        case 3:
+    //            subjectTitles =
+    //        case 4:
+    //            subjectTitles =
+    //        case 5:
+    //            subjectTitles =
+    //        case 6:
+    //            subjectTitles =
+    //        case 7:
+    //            subjectTitles =
+    //        }
+            default:
+                print("Selected Row not implemented yet")
+                return
         }
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjectsTitles.count
-    }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
         
-        cell.textLabel?.text = subjectsTitles[indexPath.row]
-        cell.backgroundColor = .clear
-        
-        return cell
-    }
-    //Goes to first question and resets the first question number to 0 in preperation for bounds 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
-        TableContentsVC.subjectStringPicked = Contents.generalSubjectsSubs[indexPath.row]
-        print(TableContentsVC.subjectStringPicked)
-        QuestionsVC.firstQuestion = 0
-        navigationController?.pushViewController(QuestionsVC(), animated: true)
+        navigationController?.pushViewController(SubSectionVC(subjectTitles), animated: true)
     }
 }
+
+
