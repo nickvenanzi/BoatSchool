@@ -54,7 +54,11 @@ class QuestionsVC: UITableViewController{
     func loadInSectionQuestions() {
         for questionRow in lowerBound...upperBound {
             let rowData: [String] = TableContentsVC.questionTable[questionRow]
-            let questionString = rowData[0]
+            if (rowData[7] == "") {
+                continue
+            }
+
+            let questionString = "\(questionRow). " + rowData[0]
             let correctAnswer = Int(rowData[rowData.count-1])!
             let answers: [String] = Array(rowData[2..<rowData.count-1])
             
@@ -211,6 +215,10 @@ class QuestionsVC: UITableViewController{
         
         return indexPath
     }
+    
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        <#code#>
+//    }
 
 
 }
