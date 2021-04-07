@@ -76,6 +76,7 @@ class QuestionsVC: UITableViewController{
                 let cell: AnswerCell? = tableView.cellForRow(at: IndexPath(row: row, section: section)) as? AnswerCell
                 if questions[section].correctAnswer - 1 == row {
                     cell?.answerLabel.textColor = .green
+
                 } else {
                     cell?.answerLabel.textColor = .none
                 }
@@ -105,6 +106,8 @@ class QuestionsVC: UITableViewController{
         
         tableView.register(UINib(nibName: "AnswerCell", bundle: nil), forCellReuseIdentifier: "AnswerCell")
         tableView.register(UINib(nibName: "ReturnCell", bundle: nil), forCellReuseIdentifier: "ReturnCell")
+        tableView.register(UINib(nibName: "SectionHeader", bundle: nil), forCellReuseIdentifier: "SectionHeader")
+
 
         tableView.separatorStyle = .none
         tableView.isScrollEnabled = true
@@ -132,9 +135,9 @@ class QuestionsVC: UITableViewController{
         return questions[section].answers.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section < questions.count ? questions[section].question : nil
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return section < questions.count ? questions[section].question : nil
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -216,9 +219,13 @@ class QuestionsVC: UITableViewController{
         return indexPath
     }
     
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        <#code#>
-//    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeader = tableView.dequeueReusableCell(withIdentifier: "SectionHeader")
+       
+        return sectionHeader
+    }
+    
+    
 
 
 }
