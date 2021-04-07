@@ -55,6 +55,7 @@ class TableContentsVC: UITableViewController{
         tableView.delegate = self
         tableView.dataSource = self
         
+        
         navigationItem.title = "Sections"
 //        searchBar.placeholder = "Search"
 //        let leftNavBarButton = UIBarButtonItem(customView: searchBar)
