@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		15FF0667261BA0BD00DCD5F9 /* SubSectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FF0666261BA0BD00DCD5F9 /* SubSectionVC.swift */; };
-		15FF0675261DFBE600DCD5F9 /* bank.csv in Resources */ = {isa = PBXBuildFile; fileRef = 15FF0674261DFBE600DCD5F9 /* bank.csv */; };
 		862FF64226112B6A00213F94 /* TableContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FF64126112B6A00213F94 /* TableContentsVC.swift */; };
 		862FF659261271C700213F94 /* AuxBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FF658261271C700213F94 /* AuxBank.swift */; };
 		862FF65E2612889800213F94 /* QuestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FF65D2612889800213F94 /* QuestionsVC.swift */; };
@@ -49,7 +48,6 @@
 
 /* Begin PBXFileReference section */
 		15FF0666261BA0BD00DCD5F9 /* SubSectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionVC.swift; sourceTree = "<group>"; };
-		15FF0674261DFBE600DCD5F9 /* bank.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = bank.csv; path = "../../TxtToExcelScript/CG Questions 2/bank.csv"; sourceTree = "<group>"; };
 		5D3A352171F0F55D88403557 /* Pods_BoatSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoatSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		862FF64126112B6A00213F94 /* TableContentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContentsVC.swift; sourceTree = "<group>"; };
 		862FF658261271C700213F94 /* AuxBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxBank.swift; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				862FF64126112B6A00213F94 /* TableContentsVC.swift */,
 				862FF65D2612889800213F94 /* QuestionsVC.swift */,
 				862FF658261271C700213F94 /* AuxBank.swift */,
-				15FF0674261DFBE600DCD5F9 /* bank.csv */,
 				866EEF88260FCAFA00BA2689 /* Main.storyboard */,
 				862FF6622612A40F00213F94 /* Cells */,
 				866EEF8B260FCAFC00BA2689 /* Assets.xcassets */,
@@ -307,7 +304,6 @@
 				866EEF8C260FCAFC00BA2689 /* Assets.xcassets in Resources */,
 				862FF6662612A44B00213F94 /* QuestionCell.xib in Resources */,
 				866EEF8A260FCAFA00BA2689 /* Main.storyboard in Resources */,
-				15FF0675261DFBE600DCD5F9 /* bank.csv in Resources */,
 				86C16F25261400A800914924 /* ReturnCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
