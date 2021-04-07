@@ -60,7 +60,11 @@ class QuestionsVC: UITableViewController{
 
             let questionString = "\(questionRow). " + rowData[0]
             let correctAnswer = Int(rowData[rowData.count-1])!
-            let answers: [String] = Array(rowData[2..<rowData.count-1])
+            var answers: [String] = Array(rowData[2..<rowData.count-1])
+            // if no 5th answer, remove last element in row
+            if answers[answers.count-1] == "" {
+                answers.popLast()
+            }
             
             questions.append(Question(questionString, correctAnswer, answers))
         }
@@ -74,7 +78,7 @@ class QuestionsVC: UITableViewController{
             
             for row in 0..<questions[section].answers.count {
                 let cell: AnswerCell? = tableView.cellForRow(at: IndexPath(row: row, section: section)) as? AnswerCell
-                if questions[section].correctAnswer - 1 == row {
+                if questions[section].correctAnswer == row {
                     cell?.answerLabel.textColor = .green
                 } else {
                     cell?.answerLabel.textColor = .none
@@ -145,9 +149,9 @@ class QuestionsVC: UITableViewController{
         let answerCell = tableView.dequeueReusableCell(withIdentifier: "AnswerCell", for: indexPath) as? AnswerCell
         answerCell?.answerLabel.text = answer
         if modeSegmentedControl.selectedSegmentIndex == 1 {
-            answerCell?.answerLabel.textColor = question.correctAnswer - 1 == indexPath.row ? .green : .none
+            answerCell?.answerLabel.textColor = question.correctAnswer == indexPath.row ? .green : .none
         } else if question.highlightedRow == indexPath.row {
-            answerCell?.answerLabel.textColor = question.correctAnswer - 1 == question.highlightedRow ? .green : .red
+            answerCell?.answerLabel.textColor = question.correctAnswer  == question.highlightedRow ? .green : .red
         } else {
             answerCell?.answerLabel.textColor = .none
 
@@ -162,7 +166,7 @@ class QuestionsVC: UITableViewController{
         let cell: AnswerCell = tableView.cellForRow(at: indexPath) as! AnswerCell
         let question: Question = questions[indexPath.section]
         
-        let correctAnswerSelected: Bool = question.correctAnswer == indexPath.row + 1
+        let correctAnswerSelected: Bool = question.correctAnswer == indexPath.row
         cell.answerLabel.textColor = correctAnswerSelected ? .green : .red
         
         if correctAnswerSelected && questions[indexPath.section].highlightedRow == nil {
@@ -202,7 +206,7 @@ class QuestionsVC: UITableViewController{
         }
         
         // only follow through with highlighting selected row if the answer has not yet been selected for this section
-        if questions[indexPath.section].correctAnswer - 1 == questions[indexPath.section].highlightedRow {
+        if questions[indexPath.section].correctAnswer == questions[indexPath.section].highlightedRow {
             return nil
         }
         
