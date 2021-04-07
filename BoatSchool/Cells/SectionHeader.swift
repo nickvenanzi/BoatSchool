@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SectionHeader: UITableViewCell {
+class SectionHeader: UITableViewHeaderFooterView {
 
    
     @IBOutlet weak var questionLabel: UILabel!
@@ -15,12 +15,6 @@ class SectionHeader: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

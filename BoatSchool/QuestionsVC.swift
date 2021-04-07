@@ -110,12 +110,14 @@ class QuestionsVC: UITableViewController{
         
         tableView.register(UINib(nibName: "AnswerCell", bundle: nil), forCellReuseIdentifier: "AnswerCell")
         tableView.register(UINib(nibName: "ReturnCell", bundle: nil), forCellReuseIdentifier: "ReturnCell")
-        tableView.register(UINib(nibName: "SectionHeader", bundle: nil), forCellReuseIdentifier: "SectionHeader")
+//        tableView.register(UINib(nibName: "SectionHeader", bundle: nil), forCellReuseIdentifier: "SectionHeader")
+        tableView.register(UINib(nibName: "SectionHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "SectionHeader")
 
 
         tableView.separatorStyle = .none
         tableView.isScrollEnabled = true
-
+        
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
     }
     
     /*
@@ -224,8 +226,10 @@ class QuestionsVC: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeader = tableView.dequeueReusableCell(withIdentifier: "SectionHeader")
-       
+        let sectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeader") as? SectionHeader
+        sectionHeader?.questionLabel.text = questions[section].question
+        sectionHeader?.questionLabel.textColor = .black
+        print("Section: \(section) with question:\n\n\(sectionHeader?.questionLabel.text)")
         return sectionHeader
     }
     
