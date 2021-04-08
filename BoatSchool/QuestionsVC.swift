@@ -12,7 +12,7 @@ struct Question {
     var correctAnswer: Int
     var answers: [String]
     var highlightedRow: Int?
-
+    
     // var image: UIImage()
     
     init(_ question: String, _ correctAnswer: Int, _ answers: [String]) {
@@ -34,6 +34,8 @@ class QuestionsVC: UITableViewController{
     var questions: [Question] = []
     var numberOfQuestionsRight = 0
     var numberOfQuestionsAnswered = 0
+    
+    static var answerLetters = ["A", "B", "C", "D", "E"]
     
     var modeSegmentedControl: UISegmentedControl = UISegmentedControl()
         
@@ -141,10 +143,6 @@ class QuestionsVC: UITableViewController{
         return questions[section].answers.count
     }
     
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return section < questions.count ? questions[section].question : nil
-//    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let questionNumber: Int = indexPath.section
@@ -152,7 +150,9 @@ class QuestionsVC: UITableViewController{
         let answer: String = question.answers[indexPath.row]
         
         let answerCell = tableView.dequeueReusableCell(withIdentifier: "AnswerCell", for: indexPath) as? AnswerCell
-        answerCell?.answerLabel.text = answer
+        answerCell?.answerLabel.text = QuestionsVC.answerLetters[indexPath.row] + ". " + answer
+        
+        // color text green, red or black depending on scenario
         if modeSegmentedControl.selectedSegmentIndex == 1 {
             answerCell?.answerLabel.textColor = question.correctAnswer == indexPath.row ? .green : .none
         } else if question.highlightedRow == indexPath.row {
@@ -165,9 +165,7 @@ class QuestionsVC: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if indexPath.row == 6{
-//            navigationController?.popToRootViewController(animated: true)
-//        }
+
         let cell: AnswerCell = tableView.cellForRow(at: indexPath) as! AnswerCell
         let question: Question = questions[indexPath.section]
         
@@ -178,9 +176,7 @@ class QuestionsVC: UITableViewController{
             numberOfQuestionsRight += 1
         }
         questions[indexPath.section].highlightedRow = indexPath.row
-        let score: Float = (Float(numberOfQuestionsRight)/Float(numberOfQuestionsAnswered) * 1000).rounded()/10.0
-        print("Current Score: \(score)%")
-        
+       
         // if every question answered, alert user on results
         if numberOfQuestionsAnswered == questions.count {
             let score: Float = (Float(numberOfQuestionsRight)/Float(numberOfQuestionsAnswered) * 1000).rounded()/10.0
@@ -191,12 +187,6 @@ class QuestionsVC: UITableViewController{
             }))
             self.present(quizResultsAlert, animated: true)
         }
-//        if firstQuestion >= upperBound+1{
-//            navigationController?.popToRootViewController(animated: true)
-//        }
-//        if indexPath.row == correctAnswer+1{
-//            navigationController?.pushViewController(QuestionsVC(), animated: true)
-//        }
 
     }
     
@@ -228,8 +218,6 @@ class QuestionsVC: UITableViewController{
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeader") as? SectionHeader
         sectionHeader?.questionLabel.text = questions[section].question
-        sectionHeader?.questionLabel.textColor = .black
-        print("Section: \(section) with question:\n\n\(sectionHeader?.questionLabel.text)")
         return sectionHeader
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
