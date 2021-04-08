@@ -16,18 +16,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vad-fU-Ysb">
-                        <rect key="frame" x="16" y="32" width="288" height="71"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vad-fU-Ysb">
+                        <rect key="frame" x="16" y="9" width="288" height="75"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="288" id="Bjp-xQ-cYz"/>
+                            <constraint firstAttribute="height" constant="75" id="rVr-cY-SoD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="vad-fU-Ysb" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="4ZB-3D-E0A"/>
                     <constraint firstItem="vad-fU-Ysb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="5UH-MN-Oc3"/>
                     <constraint firstItem="vad-fU-Ysb" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="MeL-2V-8Oe"/>
-                    <constraint firstItem="vad-fU-Ysb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-42" id="hA8-fW-Sai"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="vad-fU-Ysb" secondAttribute="bottom" constant="39" id="k8Z-51-Idn"/>
+                    <constraint firstItem="vad-fU-Ysb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iHq-w9-GbV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -232,6 +232,9 @@ class QuestionsVC: UITableViewController{
         print("Section: \(section) with question:\n\n\(sectionHeader?.questionLabel.text)")
         return sectionHeader
     }
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 75
+    }
     
     
 
