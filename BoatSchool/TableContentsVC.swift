@@ -9,9 +9,12 @@ import Foundation
 import UIKit
 import CoreXLSX
 
-class TableContentsVC: UITableViewController{
+class TableContentsVC: UITableViewController {
     
     static var questionTable: [[String]] = []
+    static var imageIDsToQuestions: [String: [Int]] = [:]
+    static var questionsToImageIDs: [Int: String] = [:]
+    
     var subjectPicked: Int = 0
      
     /*
@@ -23,7 +26,7 @@ class TableContentsVC: UITableViewController{
      
      let imageURL: String = questionTable[i][1]
      */
-    static func loadTableData(){
+    static func loadQuestionData(){
         // checks if questionTable is nonempty, aka if data has already been loaded
         guard questionTable.isEmpty else {
             return
@@ -44,13 +47,59 @@ class TableContentsVC: UITableViewController{
             fatalError("Failed to parse bank data")
         }
     }
+    
+    /*
+     Loads in linkage data between ids and questions, and vice versa
+     */
+    static func loadLinkageData() {
+        
+        // checks if IDtoQuestions has been loaded
+        if imageIDsToQuestions.isEmpty {
+            let filepath = Bundle.main.path(forResource: "IDsToQuestions", ofType: "csv")!
+            
+            do {
+                let content = try String(contentsOfFile: filepath)
+                let listOfRows: [String] = content.components(
+                    separatedBy: "\r\n"
+                )
+                for row in listOfRows {
+                    var rowData: [String] = row.components(separatedBy: ",")
+                    let imageID: String = rowData.remove(at: 0)
+                    imageIDsToQuestions[imageID] = rowData.compactMap({ (questionNumAsString) -> Int in
+                        Int(questionNumAsString)!
+                    })
+                }
+            }
+            catch {
+                fatalError("Failed to parse IDs -> Questions data")
+            }
+        }
+        
+        // checks if questionsToImageIDs has been loaded
+        if questionsToImageIDs.isEmpty {
+            let filepath = Bundle.main.path(forResource: "questionsToIDs", ofType: "csv")!
+            
+            do {
+                let content = try String(contentsOfFile: filepath)
+                let listOfRows: [String] = content.components(
+                    separatedBy: "\r\n"
+                )
+                for (rowNum, rowString) in listOfRows.enumerated() {
+                    questionsToImageIDs[rowNum] = rowString
+                }
+            }
+            catch {
+                fatalError("Failed to parse Questions -> IDs data")
+            }
+        }
+    }
 
-//    lazy var searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0,y: 10,width: .max ,height: 20))
     let cellReuseIdentifier = "chapterCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TableContentsVC.loadTableData()
+        TableContentsVC.loadQuestionData()
+        TableContentsVC.loadLinkageData()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
@@ -80,7 +129,7 @@ class TableContentsVC: UITableViewController{
         cell.textLabel?.font = .boldSystemFont(ofSize: 20)
         return cell
     }
-    
+
     //Function for selecting a row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let subjectTitles: [Section]

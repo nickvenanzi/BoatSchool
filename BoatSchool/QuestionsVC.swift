@@ -65,7 +65,7 @@ class QuestionsVC: UITableViewController{
             var answers: [String] = Array(rowData[2..<rowData.count-1])
             // if no 5th answer, remove last element in row
             if answers[answers.count-1] == "" {
-                answers.popLast()
+                let _ = answers.popLast()
             }
             
             questions.append(Question(questionString, correctAnswer, answers))
@@ -111,8 +111,6 @@ class QuestionsVC: UITableViewController{
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: "AnswerCell", bundle: nil), forCellReuseIdentifier: "AnswerCell")
-        tableView.register(UINib(nibName: "ReturnCell", bundle: nil), forCellReuseIdentifier: "ReturnCell")
-//        tableView.register(UINib(nibName: "SectionHeader", bundle: nil), forCellReuseIdentifier: "SectionHeader")
         tableView.register(UINib(nibName: "SectionHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "SectionHeader")
 
 
@@ -138,7 +136,7 @@ class QuestionsVC: UITableViewController{
     override func numberOfSections(in tableView: UITableView) -> Int {
         return questions.count
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questions[section].answers.count
     }

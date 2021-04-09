@@ -10,6 +10,8 @@
 		15FF0667261BA0BD00DCD5F9 /* SubSectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FF0666261BA0BD00DCD5F9 /* SubSectionVC.swift */; };
 		15FF0683261E2B0F00DCD5F9 /* bank.csv in Resources */ = {isa = PBXBuildFile; fileRef = 15FF0682261E2B0F00DCD5F9 /* bank.csv */; };
 		15FF0688261F477300DCD5F9 /* reduced_images in Resources */ = {isa = PBXBuildFile; fileRef = 15FF0687261F477200DCD5F9 /* reduced_images */; };
+		15FF068D261F497900DCD5F9 /* IDsToQuestions.csv in Resources */ = {isa = PBXBuildFile; fileRef = 15FF068C261F497900DCD5F9 /* IDsToQuestions.csv */; };
+		15FF0692261F49BB00DCD5F9 /* questionsToIDs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 15FF0691261F49BB00DCD5F9 /* questionsToIDs.csv */; };
 		862FF64226112B6A00213F94 /* TableContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FF64126112B6A00213F94 /* TableContentsVC.swift */; };
 		862FF659261271C700213F94 /* AuxBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FF658261271C700213F94 /* AuxBank.swift */; };
 		862FF65E2612889800213F94 /* QuestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FF65D2612889800213F94 /* QuestionsVC.swift */; };
@@ -52,6 +54,8 @@
 		15FF0666261BA0BD00DCD5F9 /* SubSectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionVC.swift; sourceTree = "<group>"; };
 		15FF0682261E2B0F00DCD5F9 /* bank.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bank.csv; sourceTree = "<group>"; };
 		15FF0687261F477200DCD5F9 /* reduced_images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = reduced_images; sourceTree = "<group>"; };
+		15FF068C261F497900DCD5F9 /* IDsToQuestions.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IDsToQuestions.csv; sourceTree = "<group>"; };
+		15FF0691261F49BB00DCD5F9 /* questionsToIDs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = questionsToIDs.csv; sourceTree = "<group>"; };
 		5D3A352171F0F55D88403557 /* Pods_BoatSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoatSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		862FF64126112B6A00213F94 /* TableContentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContentsVC.swift; sourceTree = "<group>"; };
 		862FF658261271C700213F94 /* AuxBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxBank.swift; sourceTree = "<group>"; };
@@ -107,6 +111,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15FF0697261F4A0600DCD5F9 /* QuestionAssets */ = {
+			isa = PBXGroup;
+			children = (
+				15FF0687261F477200DCD5F9 /* reduced_images */,
+				15FF0682261E2B0F00DCD5F9 /* bank.csv */,
+				15FF068C261F497900DCD5F9 /* IDsToQuestions.csv */,
+				15FF0691261F49BB00DCD5F9 /* questionsToIDs.csv */,
+			);
+			path = QuestionAssets;
+			sourceTree = "<group>";
+		};
 		3F588C7DE628D525AE41E588 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,9 +183,8 @@
 				866EEF84260FCAFA00BA2689 /* SceneDelegate.swift */,
 				862FF64126112B6A00213F94 /* TableContentsVC.swift */,
 				862FF65D2612889800213F94 /* QuestionsVC.swift */,
-				15FF0687261F477200DCD5F9 /* reduced_images */,
 				862FF658261271C700213F94 /* AuxBank.swift */,
-				15FF0682261E2B0F00DCD5F9 /* bank.csv */,
+				15FF0697261F4A0600DCD5F9 /* QuestionAssets */,
 				866EEF88260FCAFA00BA2689 /* Main.storyboard */,
 				862FF6622612A40F00213F94 /* Cells */,
 				866EEF8B260FCAFC00BA2689 /* Assets.xcassets */,
@@ -306,10 +320,12 @@
 			files = (
 				86604027261CDFD00053385C /* SectionHeader.xib in Resources */,
 				866EEF8F260FCAFC00BA2689 /* LaunchScreen.storyboard in Resources */,
+				15FF0692261F49BB00DCD5F9 /* questionsToIDs.csv in Resources */,
 				862FF6702612A6A500213F94 /* AnswerCell.xib in Resources */,
 				866EEF8C260FCAFC00BA2689 /* Assets.xcassets in Resources */,
 				862FF6662612A44B00213F94 /* QuestionCell.xib in Resources */,
 				866EEF8A260FCAFA00BA2689 /* Main.storyboard in Resources */,
+				15FF068D261F497900DCD5F9 /* IDsToQuestions.csv in Resources */,
 				15FF0683261E2B0F00DCD5F9 /* bank.csv in Resources */,
 				15FF0688261F477300DCD5F9 /* reduced_images in Resources */,
 				86C16F25261400A800914924 /* ReturnCell.xib in Resources */,
