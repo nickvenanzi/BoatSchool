@@ -11,6 +11,7 @@ class SectionHeader: UITableViewHeaderFooterView {
 
    
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var questionImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
