@@ -12,13 +12,15 @@ struct Question {
     var correctAnswer: Int
     var answers: [String]
     var highlightedRow: Int?
+    var questionNumber: Int
     
     // var image: UIImage()
     
-    init(_ question: String, _ correctAnswer: Int, _ answers: [String]) {
+    init(_ question: String, _ correctAnswer: Int, _ answers: [String], _ questionNumber: Int) {
         self.question = question
         self.correctAnswer = correctAnswer
         self.answers = answers
+        self.questionNumber = questionNumber
     }
 }
 
@@ -68,7 +70,7 @@ class QuestionsVC: UITableViewController{
                 let _ = answers.popLast()
             }
             
-            questions.append(Question(questionString, correctAnswer, answers))
+            questions.append(Question(questionString, correctAnswer, answers, questionRow))
         }
     }
 
@@ -110,8 +112,13 @@ class QuestionsVC: UITableViewController{
         tableView.delegate = self
         tableView.dataSource = self
         
+        //////////////////////
+//        tableView.register(SectionHeaderWithImage.self,
+//               forHeaderFooterViewReuseIdentifier: "SectionHeader")
+        //////////////////////
+        
         tableView.register(UINib(nibName: "AnswerCell", bundle: nil), forCellReuseIdentifier: "AnswerCell")
-        tableView.register(UINib(nibName: "SectionHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "SectionHeader")
+        tableView.register(UINib(nibName: "SectionHeader", bundle: nil), forCellReuseIdentifier: "SectionHeader")
 
 
         tableView.separatorStyle = .none
@@ -214,12 +221,21 @@ class QuestionsVC: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeader") as? SectionHeader
+        let sectionHeader = tableView.dequeueReusableCell(withIdentifier: "SectionHeader") as? SectionHeader
+//        sectionHeader?.questionLabel.text = questions[section].question
         sectionHeader?.questionLabel.text = questions[section].question
+        let imageID: String? = TableContentsVC.questionsToImageIDs[questions[section].questionNumber]
+        
+        if let id = imageID {
+            let path: String = Bundle.main.path(forResource: "reduced_images/" + id, ofType: "png")!
+            let image: UIImage = UIImage(contentsOfFile: path)!
+            sectionHeader?.questionImage.image = image
+        }
+        
         return sectionHeader
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 75
+        return 150
     }
     
     

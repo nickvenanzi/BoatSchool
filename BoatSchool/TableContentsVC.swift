@@ -65,8 +65,8 @@ class TableContentsVC: UITableViewController {
                 for row in listOfRows {
                     var rowData: [String] = row.components(separatedBy: ",")
                     let imageID: String = rowData.remove(at: 0)
-                    imageIDsToQuestions[imageID] = rowData.compactMap({ (questionNumAsString) -> Int in
-                        Int(questionNumAsString)!
+                    imageIDsToQuestions[imageID] = rowData.compactMap({ (questionNumAsString) -> Int? in
+                        Int(questionNumAsString)
                     })
                 }
             }
@@ -85,12 +85,16 @@ class TableContentsVC: UITableViewController {
                     separatedBy: "\r\n"
                 )
                 for (rowNum, rowString) in listOfRows.enumerated() {
+                    if rowString == "" {
+                        continue
+                    }
                     questionsToImageIDs[rowNum] = rowString
                 }
             }
             catch {
                 fatalError("Failed to parse Questions -> IDs data")
             }
+           
         }
     }
 
