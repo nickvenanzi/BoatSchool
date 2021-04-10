@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15D351F3261FECB4001E78B6 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D351F2261FECB4001E78B6 /* SectionHeader.xib */; };
 		15D351FB261FECE1001E78B6 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D351FA261FECE1001E78B6 /* SectionHeader.swift */; };
 		15FF0667261BA0BD00DCD5F9 /* SubSectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FF0666261BA0BD00DCD5F9 /* SubSectionVC.swift */; };
 		15FF0683261E2B0F00DCD5F9 /* bank.csv in Resources */ = {isa = PBXBuildFile; fileRef = 15FF0682261E2B0F00DCD5F9 /* bank.csv */; };
@@ -51,7 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		15D351F2261FECB4001E78B6 /* SectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 		15D351FA261FECE1001E78B6 /* SectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		15FF0666261BA0BD00DCD5F9 /* SubSectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionVC.swift; sourceTree = "<group>"; };
 		15FF0682261E2B0F00DCD5F9 /* bank.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bank.csv; sourceTree = "<group>"; };
@@ -81,6 +79,7 @@
 		866EEFA6260FCAFC00BA2689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86C16F22261400A800914924 /* ReturnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnCell.swift; sourceTree = "<group>"; };
 		86C16F23261400A800914924 /* ReturnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReturnCell.xib; sourceTree = "<group>"; };
+		86C5C65826211F8400E73D4E /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SectionHeader.xib; path = /Users/zachvenanzi/Desktop/BoatSchool/BoatSchool/Cells/SectionHeader.xib; sourceTree = "<absolute>"; };
 		BA0C0F06C5D5D5E3F32816FD /* Pods-BoatSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoatSchool.debug.xcconfig"; path = "Target Support Files/Pods-BoatSchool/Pods-BoatSchool.debug.xcconfig"; sourceTree = "<group>"; };
 		BAD17840FA95EB32CD9BD424 /* Pods-BoatSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoatSchool.release.xcconfig"; path = "Target Support Files/Pods-BoatSchool/Pods-BoatSchool.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,7 +143,7 @@
 			children = (
 				862FF6632612A44B00213F94 /* QuestionCell.swift */,
 				862FF6642612A44B00213F94 /* QuestionCell.xib */,
-				15D351F2261FECB4001E78B6 /* SectionHeader.xib */,
+				86C5C65826211F8400E73D4E /* SectionHeader.xib */,
 				15D351FA261FECE1001E78B6 /* SectionHeader.swift */,
 				862FF66D2612A6A500213F94 /* AnswerCell.swift */,
 				862FF66E2612A6A500213F94 /* AnswerCell.xib */,
@@ -325,7 +324,6 @@
 				862FF6662612A44B00213F94 /* QuestionCell.xib in Resources */,
 				866EEF8A260FCAFA00BA2689 /* Main.storyboard in Resources */,
 				15FF068D261F497900DCD5F9 /* IDsToQuestions.csv in Resources */,
-				15D351F3261FECB4001E78B6 /* SectionHeader.xib in Resources */,
 				15FF0683261E2B0F00DCD5F9 /* bank.csv in Resources */,
 				15FF0688261F477300DCD5F9 /* reduced_images in Resources */,
 				86C16F25261400A800914924 /* ReturnCell.xib in Resources */,
