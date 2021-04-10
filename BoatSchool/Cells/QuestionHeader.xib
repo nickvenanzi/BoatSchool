@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SDQ-Sy-48Y">
-                        <rect key="frame" x="16" y="0.0" width="288" height="33"/>
+                        <rect key="frame" x="16" y="11" width="288" height="22"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSS-25-Wl5">
                                 <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
@@ -26,13 +26,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="96e-pQ-cQy">
-                                <rect key="frame" x="0.0" y="20.5" width="288" height="12.5"/>
+                                <rect key="frame" x="0.0" y="20.5" width="288" height="1.5"/>
                             </imageView>
                         </subviews>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="SDQ-Sy-48Y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2Sf-NY-u6d"/>
                     <constraint firstAttribute="bottomMargin" secondItem="SDQ-Sy-48Y" secondAttribute="bottom" id="5bO-Mm-LHd"/>
                     <constraint firstItem="SDQ-Sy-48Y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="JEG-sS-RYQ"/>
                     <constraint firstItem="SDQ-Sy-48Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="TYf-nc-UGh"/>
