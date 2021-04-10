@@ -118,7 +118,7 @@ class QuestionsVC: UITableViewController{
         //////////////////////
         
         tableView.register(UINib(nibName: "AnswerCell", bundle: nil), forCellReuseIdentifier: "AnswerCell")
-        tableView.register(UINib(nibName: "SectionHeader", bundle: nil), forCellReuseIdentifier: "SectionHeader")
+        tableView.register(UINib(nibName: "QuestionHeader", bundle: nil), forCellReuseIdentifier: "QuestionHeader")
 
 
         tableView.separatorStyle = .none
@@ -221,7 +221,7 @@ class QuestionsVC: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeader = tableView.dequeueReusableCell(withIdentifier: "SectionHeader") as? SectionHeader
+        let sectionHeader = tableView.dequeueReusableCell(withIdentifier: "QuestionHeader") as? QuestionHeader
 //        sectionHeader?.questionLabel.text = questions[section].question
         sectionHeader?.questionLabel.text = questions[section].question
         let imageID: String? = TableContentsVC.questionsToImageIDs[questions[section].questionNumber]
@@ -235,7 +235,7 @@ class QuestionsVC: UITableViewController{
         return sectionHeader
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 150
+        return 350
     }
     
     
