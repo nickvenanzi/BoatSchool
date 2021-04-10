@@ -111,6 +111,7 @@ class QuestionsVC: UITableViewController{
         
         tableView.delegate = self
         tableView.dataSource = self
+        self.tableView = UITableView(frame: self.tableView.frame, style: .grouped)
         
         //////////////////////
 //        tableView.register(SectionHeaderWithImage.self,
@@ -236,6 +237,7 @@ class QuestionsVC: UITableViewController{
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 350
+        
     }
     
     
