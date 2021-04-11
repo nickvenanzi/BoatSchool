@@ -119,6 +119,7 @@ class QuestionsVC: UITableViewController{
         
         tableView.delegate = self
         tableView.dataSource = self
+        self.tableView = UITableView(frame: self.tableView.frame, style: .grouped)
         
         //////////////////////
 //        tableView.register(SectionHeaderWithImage.self,
@@ -243,6 +244,7 @@ class QuestionsVC: UITableViewController{
         return questionHeader
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
         let screenSize = UIScreen.main.bounds
         // get height of question string
         let questionHeight = questions[section].question.heightWithConstrainedWidth(width: screenSize.width, font: UIFont.systemFont(ofSize: 17))
@@ -261,8 +263,5 @@ class QuestionsVC: UITableViewController{
         }
         return questionHeight + imageHeight
     }
-    
-    
-
 
 }

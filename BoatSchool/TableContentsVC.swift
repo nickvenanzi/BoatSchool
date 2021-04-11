@@ -140,20 +140,20 @@ class TableContentsVC: UITableViewController {
         switch (indexPath.row) {
             case 0:
                 subjectTitles = Contents.generalSubjectsSubs
-//            case 1:
-//                subjectTitles = Contents.whatever
-    //        case 2:
-    //            subjectTitles =
-    //        case 3:
-    //            subjectTitles =
-    //        case 4:
-    //            subjectTitles =
-    //        case 5:
-    //            subjectTitles =
-    //        case 6:
-    //            subjectTitles =
-    //        case 7:
-    //            subjectTitles =
+            case 1:
+                subjectTitles = Contents.refrigerationSubs
+            case 2:
+                subjectTitles = Contents.safetySubs
+            case 3:
+                subjectTitles = Contents.gasTurbinesSubs
+            case 4:
+                subjectTitles = Contents.steamPlantsSubs
+            case 5:
+                subjectTitles = Contents.motorsSubs
+            case 6:
+                subjectTitles = Contents.electricalSubs
+            case 7:
+                subjectTitles = Contents.electricAndControlSubs
     //        }
             default:
                 print("Selected Row not implemented yet")
