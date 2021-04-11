@@ -27,7 +27,7 @@ struct Contents {
         Section("Piping",94,146),
         Section("Piping Symbols and Systems",147,165),
         Section("Pipe Fittings",159,169),
-        Section("tubing",170,179),
+        Section("Tubing",170,179),
         Section("Conversion Factors",181,198),
         Section("Screwdrivers",199,215),
         Section("Files",216,255),
