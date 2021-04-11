@@ -24,6 +24,14 @@ struct Question {
     }
 }
 
+extension String {
+    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedString.Key.font: font], context: nil)
+        return boundingBox.height
+    }
+}
+
 enum CellType {
     case QUESTION
     case ANSWER
@@ -222,25 +230,38 @@ class QuestionsVC: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeader = tableView.dequeueReusableCell(withIdentifier: "QuestionHeader") as? QuestionHeader
+        let questionHeader = tableView.dequeueReusableCell(withIdentifier: "QuestionHeader") as? QuestionHeader
 //        sectionHeader?.questionLabel.text = questions[section].question
-        sectionHeader?.questionLabel.text = questions[section].question
+        questionHeader?.questionLabel.text = questions[section].question
         let imageID: String? = TableContentsVC.questionsToImageIDs[questions[section].questionNumber]
         
         if let id = imageID {
             let path: String = Bundle.main.path(forResource: "reduced_images/" + id, ofType: "png")!
             let image: UIImage = UIImage(contentsOfFile: path)!
-            sectionHeader?.questionImage.image = image
+            questionHeader?.questionImage.image = image
         }
         
-        return sectionHeader
+        return questionHeader
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 350
         
+        let screenSize = UIScreen.main.bounds
+        // get height of question string
+        let questionHeight = questions[section].question.heightWithConstrainedWidth(width: screenSize.width, font: UIFont.systemFont(ofSize: 17))
+        
+        // get height of image
+        let imageHeight: CGFloat
+        
+        let imageID: String? = TableContentsVC.questionsToImageIDs[questions[section].questionNumber]
+        
+        if let id = imageID {
+            let path: String = Bundle.main.path(forResource: "reduced_images/" + id, ofType: "png")!
+            let image: UIImage = UIImage(contentsOfFile: path)!
+            imageHeight = screenSize.width * image.size.height / image.size.width
+        } else {
+            imageHeight = 0
+        }
+        return questionHeight + imageHeight
     }
-    
-    
-
 
 }
