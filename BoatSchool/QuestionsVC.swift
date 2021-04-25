@@ -255,9 +255,13 @@ class QuestionsVC: UITableViewController{
         let imageID: String? = TableContentsVC.questionsToImageIDs[questions[section].questionNumber]
         
         if let id = imageID {
-            let path: String = Bundle.main.path(forResource: "reduced_images/" + id, ofType: "png")!
-            let image: UIImage = UIImage(contentsOfFile: path)!
-            imageHeight = screenSize.width * image.size.height / image.size.width
+            let path: String? = Bundle.main.path(forResource: "reduced_images/" + id, ofType: "png")
+            if path == nil {
+                imageHeight = 0
+            } else {
+                let image: UIImage = UIImage(contentsOfFile: path!)!
+                imageHeight = screenSize.width * image.size.height / image.size.width
+            }
         } else {
             imageHeight = 0
         }
