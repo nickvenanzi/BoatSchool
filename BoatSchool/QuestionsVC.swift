@@ -247,7 +247,7 @@ class QuestionsVC: UITableViewController{
         
         let screenSize = UIScreen.main.bounds
         // get height of question string
-        let questionHeight = questions[section].question.heightWithConstrainedWidth(width: screenSize.width, font: UIFont.systemFont(ofSize: 17))
+        let questionHeight = questions[section].question.heightWithConstrainedWidth(width: screenSize.width, font: UIFont.systemFont(ofSize: 22))
         
         // get height of image
         let imageHeight: CGFloat
