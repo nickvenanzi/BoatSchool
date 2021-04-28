@@ -120,6 +120,9 @@ class QuestionsVC: UITableViewController{
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView = UITableView(frame: self.tableView.frame, style: .grouped)
+        tableView.backgroundView = UIImageView(image: UIImage(named: "QBackground"))
+        tableView.separatorStyle = .singleLine
+
         
         //////////////////////
 //        tableView.register(SectionHeaderWithImage.self,
@@ -165,14 +168,15 @@ class QuestionsVC: UITableViewController{
         
         let answerCell = tableView.dequeueReusableCell(withIdentifier: "AnswerCell", for: indexPath) as? AnswerCell
         answerCell?.answerLabel.text = QuestionsVC.answerLetters[indexPath.row] + ". " + answer
+        answerCell?.backgroundColor = .clear
         
         // color text green, red or black depending on scenario
         if modeSegmentedControl.selectedSegmentIndex == 1 {
-            answerCell?.answerLabel.textColor = question.correctAnswer == indexPath.row ? .green : .none
+            answerCell?.answerLabel.textColor = question.correctAnswer == indexPath.row ? .green : .white
         } else if question.highlightedRow == indexPath.row {
             answerCell?.answerLabel.textColor = question.correctAnswer  == question.highlightedRow ? .green : .red
         } else {
-            answerCell?.answerLabel.textColor = .none
+            answerCell?.answerLabel.textColor = .white
 
         }
         return answerCell!

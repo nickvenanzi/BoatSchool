@@ -107,7 +107,8 @@ class TableContentsVC: UITableViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.backgroundView = UIImageView(image: UIImage(named: "TCBackground"))
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         navigationItem.title = "Sections"
 //        searchBar.placeholder = "Search"
@@ -131,6 +132,7 @@ class TableContentsVC: UITableViewController {
         let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
         cell.textLabel?.text = Contents.subjects[indexPath.row]
         cell.textLabel?.font = .boldSystemFont(ofSize: 20)
+        cell.backgroundColor = .clear
         return cell
     }
 
