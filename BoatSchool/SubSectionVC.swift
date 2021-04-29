@@ -28,8 +28,8 @@ class SubSectionVC: UITableViewController{
         self.navigationItem.title = "Sub Sections"
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundView = UIImageView(image: UIImage(named: "BSBackground"))
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.backgroundView = UIImageView(image: UIImage(named: "QBackground"))
+        tableView.tableFooterView = UIView(frame: .zero)
 
 
     }
