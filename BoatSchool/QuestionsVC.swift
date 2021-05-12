@@ -94,7 +94,7 @@ class QuestionsVC: UITableViewController{
                     cell?.answerLabel.textColor = .green
 
                 } else {
-                    cell?.answerLabel.textColor = .none
+                    cell?.answerLabel.textColor = .white
                 }
             }
         }
@@ -104,7 +104,7 @@ class QuestionsVC: UITableViewController{
         for section in 0..<questions.count {
             for row in 0..<questions[section].answers.count {
                 let cell: AnswerCell? = tableView.cellForRow(at: IndexPath(row: row, section: section)) as? AnswerCell
-                cell?.answerLabel.textColor = .none
+                cell?.answerLabel.textColor = .white
             }
         }
     }
@@ -227,7 +227,7 @@ class QuestionsVC: UITableViewController{
         let previousCellPath: IndexPath? = tableView.indexPathForSelectedRow
         if previousCellPath?.section == indexPath.section {
             let previousCell = tableView.cellForRow(at: previousCellPath!) as? AnswerCell
-            previousCell?.answerLabel.textColor = .none
+            previousCell?.answerLabel.textColor = .white
         }
         
         return indexPath
@@ -251,7 +251,7 @@ class QuestionsVC: UITableViewController{
         
         let screenSize = UIScreen.main.bounds
         // get height of question string
-        let questionHeight = questions[section].question.heightWithConstrainedWidth(width: screenSize.width, font: UIFont.systemFont(ofSize: 24))
+        let questionHeight = questions[section].question.heightWithConstrainedWidth(width: screenSize.width, font: UIFont.systemFont(ofSize: 22))
         
         // get height of image
         let imageHeight: CGFloat

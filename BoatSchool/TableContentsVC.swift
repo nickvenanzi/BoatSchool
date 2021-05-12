@@ -109,7 +109,6 @@ class TableContentsVC: UITableViewController {
         tableView.dataSource = self
         tableView.backgroundView = UIImageView(image: UIImage(named: "TCBackground"))
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        
         navigationItem.title = "Sections"
 //        searchBar.placeholder = "Search"
 //        let leftNavBarButton = UIBarButtonItem(customView: searchBar)
@@ -132,6 +131,7 @@ class TableContentsVC: UITableViewController {
         let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
         cell.textLabel?.text = Contents.subjects[indexPath.row]
         cell.textLabel?.font = .boldSystemFont(ofSize: 20)
+        cell.textLabel?.textColor = .white
         cell.backgroundColor = .clear
         return cell
     }

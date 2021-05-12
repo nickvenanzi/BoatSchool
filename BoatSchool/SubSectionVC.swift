@@ -43,7 +43,8 @@ class SubSectionVC: UITableViewController{
         
         cell.textLabel?.text = subjects[indexPath.row].name
         cell.backgroundColor = .clear
-        
+        cell.textLabel?.textColor = .white
+
         return cell
     }
     
