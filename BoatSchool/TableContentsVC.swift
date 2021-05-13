@@ -40,7 +40,27 @@ class TableContentsVC: UITableViewController {
                 separatedBy: "\r\n"
             )
             questionTable = listOfRows.compactMap { (row) -> [String] in
-                row.components(separatedBy: ",")
+                row.components(separatedBy: ",") + ["F"]
+            }
+        }
+        catch {
+            fatalError("Failed to parse bank data")
+        }
+        
+        let matchesPath = Bundle.main.path(forResource: "matches", ofType: "csv")!
+        
+        do {
+            let content = try String(contentsOfFile: matchesPath)
+            let listOfQuestionNums: [String] = content.components(
+                separatedBy: "\r\n"
+            )
+            for stringNum in listOfQuestionNums {
+                let num: Int? = Int(stringNum)
+                if num == nil {
+                    continue
+                }
+                let lastIndex = questionTable[num!].count - 1
+                questionTable[num!][lastIndex] = "T"
             }
         }
         catch {
@@ -100,6 +120,9 @@ class TableContentsVC: UITableViewController {
 
     let cellReuseIdentifier = "chapterCell"
     
+    @IBOutlet weak var modeSegmentedControl: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         TableContentsVC.loadQuestionData()
@@ -108,11 +131,21 @@ class TableContentsVC: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        navigationItem.titleView = modeSegmentedControl
+        modeSegmentedControl.selectedSegmentIndex = 0
+        modeSegmentedControl.addTarget(self, action: #selector(in4kChanged), for: .valueChanged)
+
         
         navigationItem.title = "Sections"
 //        searchBar.placeholder = "Search"
 //        let leftNavBarButton = UIBarButtonItem(customView: searchBar)
 //        self.navigationItem.leftBarButtonItem = leftNavBarButton
+    }
+    
+    var in4k: Bool = false
+    
+    @objc func in4kChanged() {
+        in4k = modeSegmentedControl.selectedSegmentIndex == 1
     }
     
     //Determines the row count
@@ -160,7 +193,7 @@ class TableContentsVC: UITableViewController {
                 return
         }
         
-        navigationController?.pushViewController(SubSectionVC(subjectTitles), animated: true)
+        navigationController?.pushViewController(SubSectionVC(subjectTitles, in4k), animated: true)
     }
 }
 

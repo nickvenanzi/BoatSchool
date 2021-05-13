@@ -12,9 +12,11 @@ class SubSectionVC: UITableViewController{
     
     let cellReuseIdentifier = "subsectionCell"
     var subjects: [Section]
+    let in4k: Bool
     
-    init(_ titles: [Section]) {
+    init(_ titles: [Section], _ in4k: Bool) {
         subjects = titles
+        self.in4k = in4k
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,6 +49,6 @@ class SubSectionVC: UITableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        QuestionsVC.firstQuestion = 0
         let sectionSelected: Section = subjects[indexPath.row]
-        navigationController?.pushViewController(QuestionsVC(sectionSelected.lowerBound, sectionSelected.upperBound), animated: true)
+        navigationController?.pushViewController(QuestionsVC(sectionSelected.lowerBound, sectionSelected.upperBound, in4k), animated: true)
     }
 }

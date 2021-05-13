@@ -13,14 +13,16 @@ struct Question {
     var answers: [String]
     var highlightedRow: Int?
     var questionNumber: Int
+    var in4k: Bool
     
     // var image: UIImage()
     
-    init(_ question: String, _ correctAnswer: Int, _ answers: [String], _ questionNumber: Int) {
+    init(_ question: String, _ correctAnswer: Int, _ answers: [String], _ questionNumber: Int, _ in4k: Bool) {
         self.question = question
         self.correctAnswer = correctAnswer
         self.answers = answers
         self.questionNumber = questionNumber
+        self.in4k = in4k
     }
 }
 
@@ -37,7 +39,7 @@ enum CellType {
     case ANSWER
 }
 
-class QuestionsVC: UITableViewController{
+class QuestionsVC: UITableViewController {
     
     var upperBound: Int
     var lowerBound: Int
@@ -46,12 +48,14 @@ class QuestionsVC: UITableViewController{
     var numberOfQuestionsAnswered = 0
     
     static var answerLetters = ["A", "B", "C", "D", "E"]
+    let in4k: Bool
     
     var modeSegmentedControl: UISegmentedControl = UISegmentedControl()
         
-    init(_ lower: Int, _ upper: Int) {
+    init(_ lower: Int, _ upper: Int, _ in4k: Bool) {
         self.upperBound = upper
         self.lowerBound = lower
+        self.in4k = in4k
         super.init(nibName: nil, bundle: nil)
         loadInSectionQuestions()
     }
@@ -64,6 +68,7 @@ class QuestionsVC: UITableViewController{
      Populates question array with question data from questionData table
      */
     func loadInSectionQuestions() {
+        
         for questionRow in lowerBound...upperBound {
             let rowData: [String] = TableContentsVC.questionTable[questionRow]
             if (rowData[7] == "") {
@@ -71,14 +76,17 @@ class QuestionsVC: UITableViewController{
             }
 
             let questionString = "\(questionRow). " + rowData[0]
-            let correctAnswer = Int(rowData[rowData.count-1])!
-            var answers: [String] = Array(rowData[2..<rowData.count-1])
+            let correctAnswer = Int(rowData[rowData.count-2])!
+            var answers: [String] = Array(rowData[2..<rowData.count-2])
             // if no 5th answer, remove last element in row
             if answers[answers.count-1] == "" {
                 let _ = answers.popLast()
             }
+            let qIn4k: Bool = rowData[rowData.count - 1] == "T"
             
-            questions.append(Question(questionString, correctAnswer, answers, questionRow))
+            if !in4k || qIn4k {
+                questions.append(Question(questionString, correctAnswer, answers, questionRow, qIn4k))
+            }
         }
     }
 
