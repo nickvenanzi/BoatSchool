@@ -59,6 +59,33 @@ class QuestionsVC: UITableViewController {
         super.init(nibName: nil, bundle: nil)
         loadInSectionQuestions()
     }
+    
+    init(_ questionsToInclude: [Int]) {
+        self.upperBound = 0
+        self.lowerBound = 0
+        self.in4k = false
+        super.init(nibName: nil, bundle: nil)
+        
+        for questionRow in questionsToInclude {
+            let rowData: [String] = TableContentsVC.questionTable[questionRow]
+            if (rowData[7] == "") {
+                continue
+            }
+
+            let questionString = "\(questionRow). " + rowData[0]
+            let correctAnswer = Int(rowData[rowData.count-2])!
+            var answers: [String] = Array(rowData[2..<rowData.count-2])
+            // if no 5th answer, remove last element in row
+            if answers[answers.count-1] == "" {
+                let _ = answers.popLast()
+            }
+            questions.append(Question(questionString, correctAnswer, answers, questionRow, false))
+        }
+        
+        modeSegmentedControl.isHidden = true
+        activateStudyMode()
+        modeSegmentedControl.selectedSegmentIndex = 1
+    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -102,7 +129,7 @@ class QuestionsVC: UITableViewController {
                     cell?.answerLabel.textColor = .green
 
                 } else {
-                    cell?.answerLabel.textColor = .none
+                    cell?.answerLabel.textColor = .white
                 }
             }
         }
@@ -112,7 +139,7 @@ class QuestionsVC: UITableViewController {
         for section in 0..<questions.count {
             for row in 0..<questions[section].answers.count {
                 let cell: AnswerCell? = tableView.cellForRow(at: IndexPath(row: row, section: section)) as? AnswerCell
-                cell?.answerLabel.textColor = .none
+                cell?.answerLabel.textColor = .white
             }
         }
     }
@@ -128,6 +155,9 @@ class QuestionsVC: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView = UITableView(frame: self.tableView.frame, style: .grouped)
+        tableView.backgroundView = UIImageView(image: UIImage(named: "QBackground"))
+        tableView.separatorStyle = .singleLine
+
         
         //////////////////////
 //        tableView.register(SectionHeaderWithImage.self,
@@ -173,14 +203,15 @@ class QuestionsVC: UITableViewController {
         
         let answerCell = tableView.dequeueReusableCell(withIdentifier: "AnswerCell", for: indexPath) as? AnswerCell
         answerCell?.answerLabel.text = QuestionsVC.answerLetters[indexPath.row] + ". " + answer
+        answerCell?.backgroundColor = .clear
         
         // color text green, red or black depending on scenario
         if modeSegmentedControl.selectedSegmentIndex == 1 {
-            answerCell?.answerLabel.textColor = question.correctAnswer == indexPath.row ? .green : .none
+            answerCell?.answerLabel.textColor = question.correctAnswer == indexPath.row ? .green : .white
         } else if question.highlightedRow == indexPath.row {
             answerCell?.answerLabel.textColor = question.correctAnswer  == question.highlightedRow ? .green : .red
         } else {
-            answerCell?.answerLabel.textColor = .none
+            answerCell?.answerLabel.textColor = .white
 
         }
         return answerCell!
@@ -231,7 +262,7 @@ class QuestionsVC: UITableViewController {
         let previousCellPath: IndexPath? = tableView.indexPathForSelectedRow
         if previousCellPath?.section == indexPath.section {
             let previousCell = tableView.cellForRow(at: previousCellPath!) as? AnswerCell
-            previousCell?.answerLabel.textColor = .none
+            previousCell?.answerLabel.textColor = .white
         }
         
         return indexPath

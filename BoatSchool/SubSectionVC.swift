@@ -30,6 +30,10 @@ class SubSectionVC: UITableViewController{
         self.navigationItem.title = "Sub Sections"
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundView = UIImageView(image: UIImage(named: "QBackground"))
+        tableView.tableFooterView = UIView(frame: .zero)
+
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,7 +45,8 @@ class SubSectionVC: UITableViewController{
         
         cell.textLabel?.text = subjects[indexPath.row].name
         cell.backgroundColor = .clear
-        
+        cell.textLabel?.textColor = .white
+
         return cell
     }
     

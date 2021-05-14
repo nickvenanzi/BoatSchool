@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 import CoreXLSX
 
-class TableContentsVC: UITableViewController {
+class TableContentsVC: UITableViewController, UISearchBarDelegate {
     
     static var questionTable: [[String]] = []
     static var imageIDsToQuestions: [String: [Int]] = [:]
     static var questionsToImageIDs: [Int: String] = [:]
+    static var wordsToQuestions: [String: Set<Int>] = [:]
     
     var subjectPicked: Int = 0
      
@@ -41,6 +42,28 @@ class TableContentsVC: UITableViewController {
             )
             questionTable = listOfRows.compactMap { (row) -> [String] in
                 row.components(separatedBy: ",") + ["F"]
+            }
+            
+            /*
+             Map words to question numbers
+             */
+            let indices: [Int] = [0, 2, 3, 4, 5, 6]
+            for (row, question) in questionTable[1...].enumerated() {
+                if question.count < questionTable[0].count { continue }
+                for index in indices {
+                    let string: String = question[index]
+                    let pieces: [String] = string.components(separatedBy: " ")
+                    for piece in pieces {
+                        if piece.isEmpty {
+                            continue
+                        }
+                        let lowered: String = piece.lowercased()
+                        if wordsToQuestions[lowered] == nil {
+                            wordsToQuestions[lowered] = Set<Int>()
+                        }
+                        wordsToQuestions[lowered]!.insert(row+1)
+                    }
+                }
             }
         }
         catch {
@@ -121,6 +144,7 @@ class TableContentsVC: UITableViewController {
     let cellReuseIdentifier = "chapterCell"
     
     @IBOutlet weak var modeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var questionSearchBar: UISearchBar!
     
     
     override func viewDidLoad() {
@@ -130,18 +154,75 @@ class TableContentsVC: UITableViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         navigationItem.titleView = modeSegmentedControl
         modeSegmentedControl.selectedSegmentIndex = 0
         modeSegmentedControl.addTarget(self, action: #selector(in4kChanged), for: .valueChanged)
 
         
+        tableView.backgroundView = UIImageView(image: UIImage(named: "TCBackground"))
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         navigationItem.title = "Sections"
-//        searchBar.placeholder = "Search"
-//        let leftNavBarButton = UIBarButtonItem(customView: searchBar)
-//        self.navigationItem.leftBarButtonItem = leftNavBarButton
+        
+        questionSearchBar.backgroundImage = UIImage()
+        questionSearchBar.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+        tableView.keyboardDismissMode = .onDrag
+
+    }
+
+    @objc func dismissKeyboard() {
+        questionSearchBar.endEditing(true)
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        questionSearchBar.endEditing(true)
+        
+        guard let query = questionSearchBar.text else {
+            return
+        }
+        
+        guard query != "" else {
+            return
+        }
+        
+        var queryPieces: Set<String> = Set(query.components(separatedBy: " ").map { upper in
+            upper.lowercased()
+        })
+        queryPieces.remove("")
+        
+        var matches: [Int: Int] = [:]
+        for queryPiece in queryPieces {
+            for matchToPiece in TableContentsVC.wordsToQuestions[queryPiece] ?? Set() {
+                if matches[matchToPiece] == nil {
+                    matches[matchToPiece] = 0
+                }
+                matches[matchToPiece]! += 1
+            }
+        }
+        
+        var questionsMatched: [Int] = []
+        for match in matches {
+            if match.value == queryPieces.count {
+                // this question contained every word in the query
+                questionsMatched.append(match.key)
+            }
+        }
+        
+        guard !questionsMatched.isEmpty else {
+            let noMatchesAlert: UIAlertController = UIAlertController(title: "No matches", message: "The query: '\(query)' did not match any questions or answers in the question database", preferredStyle: .alert)
+            noMatchesAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+
+            self.present(noMatchesAlert, animated: true)
+            return
+        }
+        navigationController?.pushViewController(QuestionsVC(questionsMatched), animated: true)
+        
+    }
+        
     var in4k: Bool = false
     
     @objc func in4kChanged() {
@@ -164,34 +245,15 @@ class TableContentsVC: UITableViewController {
         let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
         cell.textLabel?.text = Contents.subjects[indexPath.row]
         cell.textLabel?.font = .boldSystemFont(ofSize: 20)
+        cell.textLabel?.textColor = .white
+        cell.backgroundColor = .clear
         return cell
     }
 
+    
     //Function for selecting a row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let subjectTitles: [Section]
-        switch (indexPath.row) {
-            case 0:
-                subjectTitles = Contents.generalSubjectsSubs
-            case 1:
-                subjectTitles = Contents.refrigerationSubs
-            case 2:
-                subjectTitles = Contents.safetySubs
-            case 3:
-                subjectTitles = Contents.gasTurbinesSubs
-            case 4:
-                subjectTitles = Contents.steamPlantsSubs
-            case 5:
-                subjectTitles = Contents.motorsSubs
-            case 6:
-                subjectTitles = Contents.electricalSubs
-            case 7:
-                subjectTitles = Contents.electricAndControlSubs
-    //        }
-            default:
-                print("Selected Row not implemented yet")
-                return
-        }
+        let subjectTitles: [Section] = Contents.sections[indexPath.row]
         
         navigationController?.pushViewController(SubSectionVC(subjectTitles, in4k), animated: true)
     }
