@@ -49,6 +49,7 @@ class QuestionsVC: UITableViewController {
     
     static var answerLetters = ["A", "B", "C", "D", "E"]
     let in4k: Bool
+    var queryWords: Set<String> = Set()
     
     var modeSegmentedControl: UISegmentedControl = UISegmentedControl()
         
@@ -60,10 +61,11 @@ class QuestionsVC: UITableViewController {
         loadInSectionQuestions()
     }
     
-    init(_ questionsToInclude: [Int]) {
+    init(_ questionsToInclude: [Int], _ queryWords: Set<String>) {
         self.upperBound = 0
         self.lowerBound = 0
         self.in4k = false
+        self.queryWords = queryWords
         super.init(nibName: nil, bundle: nil)
         
         for questionRow in questionsToInclude {
@@ -202,18 +204,32 @@ class QuestionsVC: UITableViewController {
         let answer: String = question.answers[indexPath.row]
         
         let answerCell = tableView.dequeueReusableCell(withIdentifier: "AnswerCell", for: indexPath) as? AnswerCell
-        answerCell?.answerLabel.text = QuestionsVC.answerLetters[indexPath.row] + ". " + answer
         answerCell?.backgroundColor = .clear
         
         // color text green, red or black depending on scenario
+        let defaultColor: UIColor
         if modeSegmentedControl.selectedSegmentIndex == 1 {
-            answerCell?.answerLabel.textColor = question.correctAnswer == indexPath.row ? .green : .white
+            defaultColor = question.correctAnswer == indexPath.row ? .green : .white
         } else if question.highlightedRow == indexPath.row {
-            answerCell?.answerLabel.textColor = question.correctAnswer  == question.highlightedRow ? .green : .red
+            defaultColor = question.correctAnswer  == question.highlightedRow ? .green : .red
         } else {
-            answerCell?.answerLabel.textColor = .white
-
+            defaultColor = .white
         }
+        let normal = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17), NSAttributedString.Key.foregroundColor : defaultColor]
+        
+        // construct the text with highlighted portions if necessary
+        let answerWords: [String] = answer.components(separatedBy: " ")
+
+        let label = NSMutableAttributedString(string: QuestionsVC.answerLetters[indexPath.row] + ".", attributes: normal)
+        
+        for word in answerWords {
+            if queryWords.contains(word.lowercased()) {
+                label.append(NSMutableAttributedString(string: " " + word, attributes: QuestionsVC.highlighted))
+            } else {
+                label.append(NSMutableAttributedString(string: " " + word, attributes: normal))
+            }
+        }
+        answerCell?.answerLabel.attributedText = label
         return answerCell!
     }
     
@@ -268,12 +284,28 @@ class QuestionsVC: UITableViewController {
         return indexPath
     }
     
+    static let highlighted = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17), NSAttributedString.Key.foregroundColor : UIColor.yellow]
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let questionHeader = tableView.dequeueReusableCell(withIdentifier: "QuestionHeader") as? QuestionHeader
-//        sectionHeader?.questionLabel.text = questions[section].question
-        questionHeader?.questionLabel.text = questions[section].question
-        let imageID: String? = TableContentsVC.questionsToImageIDs[questions[section].questionNumber]
+        let questionString = questions[section].question
+        // construct the text with highlighted portions if necessary
+        let questionWords: [String] = questionString.components(separatedBy: " ")
+        let normal = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17), NSAttributedString.Key.foregroundColor : UIColor.white]
         
+        let label = NSMutableAttributedString(string: "", attributes: normal)
+        
+        for word in questionWords {
+            if queryWords.contains(word.lowercased()) {
+                label.append(NSMutableAttributedString(string: word + " ", attributes: QuestionsVC.highlighted))
+            } else {
+                label.append(NSMutableAttributedString(string: word + " ", attributes: normal))
+            }
+        }
+        questionHeader?.questionLabel.attributedText = label
+        
+        
+        let imageID: String? = TableContentsVC.questionsToImageIDs[questions[section].questionNumber]
         if let id = imageID {
             let path: String = Bundle.main.path(forResource: "reduced_images/" + id, ofType: "png")!
             let image: UIImage = UIImage(contentsOfFile: path)!
