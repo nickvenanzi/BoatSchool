@@ -56,4 +56,12 @@ class SubSectionVC: UITableViewController{
         let sectionSelected: Section = subjects[indexPath.row]
         navigationController?.pushViewController(QuestionsVC(sectionSelected.lowerBound, sectionSelected.upperBound, in4k), animated: true)
     }
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 75))
+        var footer = UIImageView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 75 ))
+        footer = UIImageView(image: UIImage(named: "Title"))
+        footer.center = CGPoint(x: footerView.frame.size.width/2, y: footerView.frame.size.height/2)
+        footerView.addSubview(footer)
+        return footerView
+    }
 }
