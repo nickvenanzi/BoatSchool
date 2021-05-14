@@ -338,5 +338,4 @@ class QuestionsVC: UITableViewController {
         }
         return questionHeight + imageHeight
     }
-
 }
