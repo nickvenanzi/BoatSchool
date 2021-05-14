@@ -219,7 +219,7 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
             self.present(noMatchesAlert, animated: true)
             return
         }
-        navigationController?.pushViewController(QuestionsVC(questionsMatched), animated: true)
+        navigationController?.pushViewController(QuestionsVC(questionsMatched, queryPieces), animated: true)
         
     }
         
