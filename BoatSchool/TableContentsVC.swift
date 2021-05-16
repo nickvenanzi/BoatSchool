@@ -254,7 +254,6 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
     //Function for selecting a row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let subjectTitles: [Section] = Contents.sections[indexPath.row]
-        
         navigationController?.pushViewController(SubSectionVC(subjectTitles, in4k), animated: true)
     }
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
