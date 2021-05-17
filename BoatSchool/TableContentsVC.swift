@@ -239,6 +239,7 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
         return 60
     }
     
+    
     //Sets the Cells for the initial screen of main subjects
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
