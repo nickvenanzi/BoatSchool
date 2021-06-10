@@ -18,4 +18,4 @@ Enjoy!
 Having trouble with BoatSchool? Send an email to either of us:
 
 - Zach Venanzi -- venanziz@gmail.com
-- Nick Venani -- nickvenanzi@gmail.com
+- Nick Venanzi -- nickvenanzi@gmail.com
