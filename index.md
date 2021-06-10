@@ -19,3 +19,7 @@ Having trouble with BoatSchool? Send an email to either of us:
 
 - Zach Venanzi -- venanziz@gmail.com
 - Nick Venanzi -- nickvenanzi@gmail.com
+
+### Privacy Policy
+
+No user data is collected in BoatSchool
