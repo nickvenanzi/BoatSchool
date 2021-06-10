@@ -20,6 +20,9 @@ Having trouble with BoatSchool? Send an email to either of us:
 - Zach Venanzi -- venanziz@gmail.com
 - Nick Venanzi -- nickvenanzi@gmail.com
 
+Note: This app is entirely unaffiliated from the U.S. Coast Guard or any other entity.
+
 ### Privacy Policy
 
 No user data is collected in BoatSchool
+
