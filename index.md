@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+## Boat School
 
-You can use the [editor on GitHub](https://github.com/nickvenanzi/BoatSchool/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Boat School is an iOS App made for anyone finding themselves preparing for a U.S. Coast Guard License Exam. Split into general sections, such as Refrigeration, Safety, and Electricity, users can select any section to study from.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Once a section is selected, the app allows users to select from subsections within a given section. Once selected, questions from that subsection will appear in a scroll content view with two main modes:
 
-### Markdown
+1. Study Mode - for those looking to just let telepathic osmosis take over 5 mins before the exam, answers are revealed to questions.
+2. Quiz Mode - an interactive mode where users get to guess the correct answer to each question, allowing as many guesses as it takes to get the right answer. Once every question in a section is answered, the quiz results will appear on the user's initial guess to each question.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Beyond these two general modes, there is also a controllable tab on the main section view allowing user's to filter questions to just exclusively 3 A/E questions, or keep it unfilitered to the full 14k question bank.
 
-```markdown
-Syntax highlighted code block
+As a final feature to ease the study grind, a search feature has been implemented based off of key words. Questions and answers containing each of the words in the search bar will appear in 'Study Mode' as a search result.
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/nickvenanzi/BoatSchool/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Enjoy!
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Having trouble with BoatSchool? Send an email to either of us:
+
+- Zach Venanzi -- venanziz@gmail.com
+- Nick Venani -- nickvenanzi@gmail.com
