@@ -145,7 +145,7 @@ class QuestionsVC: UITableViewController {
             }
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = modeSegmentedControl
@@ -153,7 +153,9 @@ class QuestionsVC: UITableViewController {
         modeSegmentedControl.insertSegment(withTitle: "Study Mode", at: 1, animated: false)
         modeSegmentedControl.selectedSegmentIndex = 0
         modeSegmentedControl.addTarget(self, action: #selector(modeChanged), for: .valueChanged)
-        
+        modeSegmentedControl.backgroundColor = .lightGray
+        modeSegmentedControl.selectedSegmentTintColor = .darkGray
+
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView = UITableView(frame: self.tableView.frame, style: .grouped)
@@ -174,6 +176,12 @@ class QuestionsVC: UITableViewController {
         tableView.isScrollEnabled = true
         
         tableView.sectionHeaderHeight = UITableView.automaticDimension
+
+    }
+    
+    @objc func pinchGesture(sender: UIPinchGestureRecognizer){
+        sender.view?.transform = (sender.view?.transform.scaledBy(x: sender.scale, y: sender.scale))!
+        sender.scale = 1.0
     }
     
     /*
@@ -295,6 +303,8 @@ class QuestionsVC: UITableViewController {
         
         let label = NSMutableAttributedString(string: "", attributes: normal)
         
+        questionHeader?.questionImage.isUserInteractionEnabled = true
+        questionHeader?.questionImage.contentMode = .scaleAspectFit
         for word in questionWords {
             if queryWords.contains(word.lowercased()) {
                 label.append(NSMutableAttributedString(string: word + " ", attributes: QuestionsVC.highlighted))

@@ -16,7 +16,7 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
     static var questionsToImageIDs: [Int: String] = [:]
     static var wordsToQuestions: [String: Set<Int>] = [:]
     
-    var subjectPicked: Int = 0
+    static var subjectPicked: String = ""
      
     /*
      Loads in CSV data into questionTable. To retrieve a particular question, call:
@@ -158,6 +158,8 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
         navigationItem.titleView = modeSegmentedControl
         modeSegmentedControl.selectedSegmentIndex = 0
         modeSegmentedControl.addTarget(self, action: #selector(in4kChanged), for: .valueChanged)
+        modeSegmentedControl.backgroundColor = .lightGray
+        modeSegmentedControl.selectedSegmentTintColor = .darkGray
 
         
         tableView.backgroundView = UIImageView(image: UIImage(named: "QBackground"))
@@ -171,6 +173,13 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
         view.addGestureRecognizer(tap)
         
         tableView.keyboardDismissMode = .onDrag
+        
+        var footer = UIImageView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        footer = UIImageView(image: UIImage(named: "Title"))
+        footer.contentMode = .scaleAspectFit
+        footer.center.y = view.center.x
+        tableView.tableFooterView = footer
+
 
     }
 
@@ -254,15 +263,8 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
     //Function for selecting a row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let subjectTitles: [Section] = Contents.sections[indexPath.row]
+        TableContentsVC.subjectPicked = (Contents.subjects[indexPath.row])
         navigationController?.pushViewController(SubSectionVC(subjectTitles, in4k), animated: true)
-    }
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 75))
-        var footer = UIImageView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 75))
-        footer = UIImageView(image: UIImage(named: "Title"))
-        footer.center = CGPoint(x: footerView.frame.size.width/2, y: footerView.frame.size.height/2)
-        footerView.addSubview(footer)
-        return footerView
     }
 }
 

@@ -182,18 +182,18 @@
 		866EEF81260FCAFA00BA2689 /* BoatSchool */ = {
 			isa = PBXGroup;
 			children = (
-				866EEF82260FCAFA00BA2689 /* AppDelegate.swift */,
-				866EEF84260FCAFA00BA2689 /* SceneDelegate.swift */,
 				862FF64126112B6A00213F94 /* TableContentsVC.swift */,
 				862FF65D2612889800213F94 /* QuestionsVC.swift */,
 				862FF658261271C700213F94 /* AuxBank.swift */,
-				15FF0697261F4A0600DCD5F9 /* QuestionAssets */,
-				866EEF88260FCAFA00BA2689 /* Main.storyboard */,
-				862FF6622612A40F00213F94 /* Cells */,
-				866EEF8B260FCAFC00BA2689 /* Assets.xcassets */,
-				866EEF8D260FCAFC00BA2689 /* LaunchScreen.storyboard */,
-				866EEF90260FCAFC00BA2689 /* Info.plist */,
 				15FF0666261BA0BD00DCD5F9 /* SubSectionVC.swift */,
+				866EEF88260FCAFA00BA2689 /* Main.storyboard */,
+				866EEF8D260FCAFC00BA2689 /* LaunchScreen.storyboard */,
+				866EEF8B260FCAFC00BA2689 /* Assets.xcassets */,
+				866EEF82260FCAFA00BA2689 /* AppDelegate.swift */,
+				866EEF84260FCAFA00BA2689 /* SceneDelegate.swift */,
+				866EEF90260FCAFC00BA2689 /* Info.plist */,
+				862FF6622612A40F00213F94 /* Cells */,
+				15FF0697261F4A0600DCD5F9 /* QuestionAssets */,
 			);
 			path = BoatSchool;
 			sourceTree = "<group>";
