@@ -24,6 +24,7 @@ struct Contents {
     static var sections: [[Section]] = [generalSubjectsSubs, refrigerationSubs, safetySubs, gasTurbinesSubs, steamPlantsSubs, motorsSubs, electricalSubs, electricAndControlSubs, oldExamsSubs]
     
     static var subjects = ["General Subjects","Refrigeration","Safety","Gas Turbines","Steam Plants","Motor Plants","Electricity","Electronics & Control", "Old Exams"]
+
     static var generalSubjectsSubs: [Section] = [
         Section("Blueprints",1,56),
         Section("Drawing",57,93),

@@ -60,12 +60,15 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmZ-4D-rcr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-617.39130434782612" y="-121.20535714285714"/>
+            <point key="canvasLocation" x="-2368" y="1053"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Library-->
         <scene sceneID="A9J-OT-PXo">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ox2-B2-u1u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="zmz-M3-nwy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Library" image="books.vertical" catalog="system" id="Imw-b6-Q19"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="yNE-sm-yOG">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -80,9 +83,11 @@
                         <segue destination="24r-wY-Rva" kind="relationship" relationship="rootViewController" id="BZ3-bL-XFT"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ox2-B2-u1u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1478" y="-135"/>
+            <point key="canvasLocation" x="-2367" y="329"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="books.vertical" catalog="system" width="128" height="103"/>
+    </resources>
 </document>
