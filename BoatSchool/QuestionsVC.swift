@@ -6,6 +6,7 @@
 //
 import Foundation
 import UIKit
+import Zoomy
 
 struct Question {
     var question: String
@@ -13,16 +14,14 @@ struct Question {
     var answers: [String]
     var highlightedRow: Int?
     var questionNumber: Int
-    var in4k: Bool
     
     // var image: UIImage()
     
-    init(_ question: String, _ correctAnswer: Int, _ answers: [String], _ questionNumber: Int, _ in4k: Bool) {
+    init(_ question: String, _ correctAnswer: Int, _ answers: [String], _ questionNumber: Int) {
         self.question = question
         self.correctAnswer = correctAnswer
         self.answers = answers
         self.questionNumber = questionNumber
-        self.in4k = in4k
     }
 }
 
@@ -41,52 +40,39 @@ enum CellType {
 
 class QuestionsVC: UITableViewController {
     
-    var upperBound: Int
-    var lowerBound: Int
     var questions: [Question] = []
     var numberOfQuestionsRight = 0
     var numberOfQuestionsAnswered = 0
     
     static var answerLetters = ["A", "B", "C", "D", "E"]
-    let in4k: Bool
     var queryWords: Set<String> = Set()
     
     var modeSegmentedControl: UISegmentedControl = UISegmentedControl()
-        
+      
+    // normal study mode
     init(_ lower: Int, _ upper: Int, _ in4k: Bool) {
-        self.upperBound = upper
-        self.lowerBound = lower
-        self.in4k = in4k
         super.init(nibName: nil, bundle: nil)
-        loadInSectionQuestions()
+        let questionNumbers: [Int] = Array(lower...upper)
+        loadInSectionQuestions(questionNumbers, in4k)
     }
     
+    // search queries
     init(_ questionsToInclude: [Int], _ queryWords: Set<String>) {
-        self.upperBound = 0
-        self.lowerBound = 0
-        self.in4k = false
         self.queryWords = queryWords
         super.init(nibName: nil, bundle: nil)
         
-        for questionRow in questionsToInclude {
-            let rowData: [String] = TableContentsVC.questionTable[questionRow]
-            if (rowData[7] == "") {
-                continue
-            }
-
-            let questionString = "\(questionRow). " + rowData[0]
-            let correctAnswer = Int(rowData[rowData.count-2])!
-            var answers: [String] = Array(rowData[2..<rowData.count-2])
-            // if no 5th answer, remove last element in row
-            if answers[answers.count-1] == "" {
-                let _ = answers.popLast()
-            }
-            questions.append(Question(questionString, correctAnswer, answers, questionRow, false))
-        }
+        loadInSectionQuestions(questionsToInclude, false)
         
         modeSegmentedControl.isHidden = true
         activateStudyMode()
         modeSegmentedControl.selectedSegmentIndex = 1
+    }
+    
+    // generate random test
+    init(_ questionsToInclude: [Int]) {
+        super.init(nibName: nil, bundle: nil)
+        loadInSectionQuestions(questionsToInclude, false)
+        modeSegmentedControl.isHidden = true
     }
 
     required init?(coder: NSCoder) {
@@ -96,15 +82,19 @@ class QuestionsVC: UITableViewController {
     /*
      Populates question array with question data from questionData table
      */
-    func loadInSectionQuestions() {
+    func loadInSectionQuestions(_ questionsToInclude: [Int], _ filterFor4k: Bool) {
         
-        for questionRow in lowerBound...upperBound {
+        for questionRow in questionsToInclude {
             let rowData: [String] = TableContentsVC.questionTable[questionRow]
             if (rowData[7] == "") {
                 continue
             }
-
-            let questionString = "\(questionRow). " + rowData[0]
+            let questionString: String
+            if questionRow < 14428 {
+                questionString = "\(questionRow). " + rowData[0]
+            } else {
+                questionString = rowData[0]
+            }
             let correctAnswer = Int(rowData[rowData.count-2])!
             var answers: [String] = Array(rowData[2..<rowData.count-2])
             // if no 5th answer, remove last element in row
@@ -113,8 +103,8 @@ class QuestionsVC: UITableViewController {
             }
             let qIn4k: Bool = rowData[rowData.count - 1] == "T"
             
-            if !in4k || qIn4k {
-                questions.append(Question(questionString, correctAnswer, answers, questionRow, qIn4k))
+            if !(filterFor4k && !qIn4k) {
+                questions.append(Question(questionString, correctAnswer, answers, questionRow))
             }
         }
     }
@@ -223,7 +213,18 @@ class QuestionsVC: UITableViewController {
         let label = NSMutableAttributedString(string: QuestionsVC.answerLetters[indexPath.row] + ".", attributes: normal)
         
         for word in answerWords {
-            if queryWords.contains(word.lowercased()) {
+            let lowered: String = word.lowercased()
+            let stripped: String = lowered.replacingOccurrences(of: ".", with: "")
+                .replacingOccurrences(of: "?", with: "")
+                .replacingOccurrences(of: "!", with: "")
+                .replacingOccurrences(of: ",", with: "")
+                .replacingOccurrences(of: "(", with: "")
+                .replacingOccurrences(of: ")", with: "")
+                .replacingOccurrences(of: "%", with: "")
+                .replacingOccurrences(of: "!", with: "")
+                .replacingOccurrences(of: "\"", with: "")
+                .replacingOccurrences(of: "\'", with: "")
+            if queryWords.contains(lowered) || queryWords.contains(stripped) {
                 label.append(NSMutableAttributedString(string: " " + word, attributes: QuestionsVC.highlighted))
             } else {
                 label.append(NSMutableAttributedString(string: " " + word, attributes: normal))
@@ -249,7 +250,7 @@ class QuestionsVC: UITableViewController {
         // if every question answered, alert user on results
         if numberOfQuestionsAnswered == questions.count {
             let score: Float = (Float(numberOfQuestionsRight)/Float(numberOfQuestionsAnswered) * 1000).rounded()/10.0
-            let quizResultsAlert = UIAlertController(title: "Quiz Results: \(score)%", message: "You answered \(numberOfQuestionsRight) out of \(numberOfQuestionsAnswered)", preferredStyle: .alert)
+            let quizResultsAlert = UIAlertController(title: "Quiz Results: \(score)%", message: "You answered \(numberOfQuestionsRight) out of \(numberOfQuestionsAnswered) correctly", preferredStyle: .alert)
             
             quizResultsAlert.addAction(UIAlertAction(title: "Exit Section", style: .cancel, handler: { (_) in
                 self.navigationController?.popToRootViewController(animated: true)
@@ -296,7 +297,19 @@ class QuestionsVC: UITableViewController {
         let label = NSMutableAttributedString(string: "", attributes: normal)
         
         for word in questionWords {
-            if queryWords.contains(word.lowercased()) {
+            let lowered: String = word.lowercased()
+            let stripped: String = lowered.replacingOccurrences(of: ".", with: "")
+                .replacingOccurrences(of: "?", with: "")
+                .replacingOccurrences(of: "!", with: "")
+                .replacingOccurrences(of: ",", with: "")
+                .replacingOccurrences(of: "(", with: "")
+                .replacingOccurrences(of: ")", with: "")
+                .replacingOccurrences(of: "%", with: "")
+                .replacingOccurrences(of: "!", with: "")
+                .replacingOccurrences(of: "\"", with: "")
+                .replacingOccurrences(of: "\'", with: "")
+
+            if queryWords.contains(lowered) || queryWords.contains(stripped) {
                 label.append(NSMutableAttributedString(string: word + " ", attributes: QuestionsVC.highlighted))
             } else {
                 label.append(NSMutableAttributedString(string: word + " ", attributes: normal))
@@ -310,6 +323,7 @@ class QuestionsVC: UITableViewController {
             let path: String = Bundle.main.path(forResource: "reduced_images/" + id, ofType: "png")!
             let image: UIImage = UIImage(contentsOfFile: path)!
             questionHeader?.questionImage.image = image
+            self.addZoombehavior(for: questionHeader!.questionImage, settings: .instaZoomSettings)
         }
         
         return questionHeader

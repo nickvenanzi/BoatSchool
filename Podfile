@@ -8,6 +8,6 @@ target 'BoatSchool' do
   # Pods for BoatSchool
 
 pod 'CoreXLSX'
-
+pod 'Zoomy'
 
 end

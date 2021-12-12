@@ -57,13 +57,33 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
                         if piece.isEmpty {
                             continue
                         }
-                        let lowered: String = piece.lowercased()
-                        if wordsToQuestions[lowered] == nil {
-                            wordsToQuestions[lowered] = Set<Int>()
+                        let stripped: String = piece.lowercased().replacingOccurrences(of: ".", with: "")
+                            .replacingOccurrences(of: "?", with: "")
+                            .replacingOccurrences(of: "!", with: "")
+                            .replacingOccurrences(of: ",", with: "")
+                            .replacingOccurrences(of: "(", with: "")
+                            .replacingOccurrences(of: ")", with: "")
+                            .replacingOccurrences(of: "%", with: "")
+                            .replacingOccurrences(of: "!", with: "")
+                            .replacingOccurrences(of: "\"", with: "")
+                            .replacingOccurrences(of: "\'", with: "")
+                        if wordsToQuestions[stripped] == nil {
+                            wordsToQuestions[stripped] = Set<Int>()
                         }
-                        wordsToQuestions[lowered]!.insert(row+1)
+                        wordsToQuestions[stripped]!.insert(row+1)
                     }
                 }
+                
+                // add question number to search
+                if wordsToQuestions["\(row+1)"] == nil {
+                    wordsToQuestions["\(row+1)"] = Set<Int>()
+                }
+                wordsToQuestions["\(row+1)"]!.insert(row+1)
+                if wordsToQuestions["\(row+1)."] == nil {
+                    wordsToQuestions["\(row+1)."] = Set<Int>()
+                }
+                wordsToQuestions["\(row+1)."]!.insert(row+1)
+                
             }
         }
         catch {
@@ -255,7 +275,8 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
     //Function for selecting a row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let subjectTitles: [Section] = Contents.sections[indexPath.row]
-        navigationController?.pushViewController(SubSectionVC(subjectTitles, in4k), animated: true)
+        let sectionName: String = Contents.subjects[indexPath.row]
+        navigationController?.pushViewController(SubSectionVC(subjectTitles, sectionName, in4k), animated: true)
     }
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 75))
