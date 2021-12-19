@@ -12,7 +12,6 @@ import CoreXLSX
 class TableContentsVC: UITableViewController, UISearchBarDelegate {
     
     static var questionTable: [[String]] = []
-    static var imageIDsToQuestions: [String: [Int]] = [:]
     static var questionsToImageIDs: [Int: String] = [:]
     static var wordsToQuestions: [String: Set<Int>] = [:]
     
@@ -116,28 +115,6 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
      */
     static func loadLinkageData() {
         
-        // checks if IDtoQuestions has been loaded
-        if imageIDsToQuestions.isEmpty {
-            let filepath = Bundle.main.path(forResource: "IDsToQuestions", ofType: "csv")!
-            
-            do {
-                let content = try String(contentsOfFile: filepath)
-                let listOfRows: [String] = content.components(
-                    separatedBy: "\r\n"
-                )
-                for row in listOfRows {
-                    var rowData: [String] = row.components(separatedBy: ",")
-                    let imageID: String = rowData.remove(at: 0)
-                    imageIDsToQuestions[imageID] = rowData.compactMap({ (questionNumAsString) -> Int? in
-                        Int(questionNumAsString)
-                    })
-                }
-            }
-            catch {
-                fatalError("Failed to parse IDs -> Questions data")
-            }
-        }
-        
         // checks if questionsToImageIDs has been loaded
         if questionsToImageIDs.isEmpty {
             let filepath = Bundle.main.path(forResource: "questionsToIDs", ofType: "csv")!
@@ -169,6 +146,7 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         TableContentsVC.loadQuestionData()
         TableContentsVC.loadLinkageData()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
@@ -285,9 +263,37 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let subjectTitles: [Section] = Contents.sections[indexPath.row]
         let sectionName: String = Contents.subjects[indexPath.row]
+        if indexPath.row == Contents.subjects.count - 1 {
+            // accessing old exams, force to pay
+            
+        }
         navigationController?.pushViewController(SubSectionVC(subjectTitles, in4k), animated: true)
         TableContentsVC.subjectPicked = Contents.subjects[indexPath.row]
     }
+}
+
+class Keys {
+    static var examPaymentKey: String = "examPaymentKey"
+    static var testGeneratorPaymentKey: String = "testGeneratorPaymentKey"
+
+    static var examsPurchased: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: examPaymentKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: examPaymentKey)
+        }
+    }
+    
+    static var testGeneratorPurchased: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: testGeneratorPaymentKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: testGeneratorPaymentKey)
+        }
+    }
+    
 }
 
 

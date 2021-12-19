@@ -328,7 +328,13 @@ class QuestionsVC: UITableViewController {
         questionHeader?.questionLabel.attributedText = label
         
         
-        let imageID: String? = TableContentsVC.questionsToImageIDs[questions[section].questionNumber]
+        let imageID: String?
+        if questions[section].questionNumber < 14428 {
+            imageID = TableContentsVC.questionsToImageIDs[questions[section].questionNumber]
+        } else {
+            let id = TableContentsVC.questionTable[questions[section].questionNumber][1]
+            imageID = id != "" ? id : nil
+        }
         if let id = imageID {
             let path: String = Bundle.main.path(forResource: "reduced_images/" + id, ofType: "png")!
             let image: UIImage = UIImage(contentsOfFile: path)!
@@ -347,7 +353,13 @@ class QuestionsVC: UITableViewController {
         // get height of image
         let imageHeight: CGFloat
         
-        let imageID: String? = TableContentsVC.questionsToImageIDs[questions[section].questionNumber]
+        let imageID: String?
+        if questions[section].questionNumber < 14428 {
+            imageID = TableContentsVC.questionsToImageIDs[questions[section].questionNumber]
+        } else {
+            let id = TableContentsVC.questionTable[questions[section].questionNumber][1]
+            imageID = id != "" ? id : nil
+        }
         
         if let id = imageID {
             let path: String? = Bundle.main.path(forResource: "reduced_images/" + id, ofType: "png")

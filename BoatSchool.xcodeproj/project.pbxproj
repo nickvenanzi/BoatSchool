@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		151BD2F426363E0500522C16 /* questionsToIDs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 151BD2F326363E0500522C16 /* questionsToIDs.csv */; };
-		151BD2F926363E1100522C16 /* IDsToQuestions.csv in Resources */ = {isa = PBXBuildFile; fileRef = 151BD2F826363E1100522C16 /* IDsToQuestions.csv */; };
 		151BD2FE26363E1C00522C16 /* bank.csv in Resources */ = {isa = PBXBuildFile; fileRef = 151BD2FD26363E1C00522C16 /* bank.csv */; };
 		1531DA35264C4FE2009FDD3D /* matches.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1531DA34264C4FE2009FDD3D /* matches.csv */; };
 		15D3523426212AF6001E78B6 /* QuestionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3523226212AF6001E78B6 /* QuestionHeader.swift */; };
@@ -53,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		151BD2F326363E0500522C16 /* questionsToIDs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = questionsToIDs.csv; sourceTree = "<group>"; };
-		151BD2F826363E1100522C16 /* IDsToQuestions.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IDsToQuestions.csv; sourceTree = "<group>"; };
 		151BD2FD26363E1C00522C16 /* bank.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bank.csv; sourceTree = "<group>"; };
 		1531DA34264C4FE2009FDD3D /* matches.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = matches.csv; sourceTree = "<group>"; };
 		155E2DC326517C3300A989AA /* BoatSchool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatSchool.entitlements; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				15FF0687261F477200DCD5F9 /* reduced_images */,
-				151BD2F826363E1100522C16 /* IDsToQuestions.csv */,
 				1531DA34264C4FE2009FDD3D /* matches.csv */,
 				151BD2FD26363E1C00522C16 /* bank.csv */,
 				151BD2F326363E0500522C16 /* questionsToIDs.csv */,
@@ -184,8 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				155E2DC326517C3300A989AA /* BoatSchool.entitlements */,
-				866EEF82260FCAFA00BA2689 /* AppDelegate.swift */,
-				866EEF84260FCAFA00BA2689 /* SceneDelegate.swift */,
 				862FF64126112B6A00213F94 /* TableContentsVC.swift */,
 				862FF65D2612889800213F94 /* QuestionsVC.swift */,
 				862FF658261271C700213F94 /* AuxBank.swift */,
@@ -329,7 +324,6 @@
 				862FF6702612A6A500213F94 /* AnswerCell.xib in Resources */,
 				151BD2F426363E0500522C16 /* questionsToIDs.csv in Resources */,
 				866EEF8C260FCAFC00BA2689 /* Assets.xcassets in Resources */,
-				151BD2F926363E1100522C16 /* IDsToQuestions.csv in Resources */,
 				862FF6662612A44B00213F94 /* QuestionCell.xib in Resources */,
 				1531DA35264C4FE2009FDD3D /* matches.csv in Resources */,
 				866EEF8A260FCAFA00BA2689 /* Main.storyboard in Resources */,
@@ -598,7 +592,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
+				OFFERING_APPLE_PAY_BUNDLE_PREFIX = Venanzi.BoatSchool;
 				PRODUCT_BUNDLE_IDENTIFIER = Venanzi.BoatSchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -622,7 +617,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
+				OFFERING_APPLE_PAY_BUNDLE_PREFIX = Venanzi.BoatSchool;
 				PRODUCT_BUNDLE_IDENTIFIER = Venanzi.BoatSchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
