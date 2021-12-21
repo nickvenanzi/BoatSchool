@@ -177,9 +177,14 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
         footer.contentMode = .scaleAspectFit
         footer.center.y = view.center.x
         tableView.tableFooterView = footer
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Store", style: .plain, target: self, action: #selector(presentStoreVC))
 
 
     }
+    @objc func presentStoreVC(){
+        navigationController?.pushViewController(StoreVC(), animated: true)
+    }
+    
 
     @objc func dismissKeyboard() {
         questionSearchBar.endEditing(true)
