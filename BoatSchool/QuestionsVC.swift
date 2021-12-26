@@ -372,6 +372,6 @@ class QuestionsVC: UITableViewController {
         } else {
             imageHeight = 0
         }
-        return questionHeight + imageHeight
+        return questionHeight + imageHeight + 30
     }
 }
