@@ -28,6 +28,7 @@
 		866EEF8F260FCAFC00BA2689 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866EEF8D260FCAFC00BA2689 /* LaunchScreen.storyboard */; };
 		866EEF9A260FCAFC00BA2689 /* BoatSchoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EEF99260FCAFC00BA2689 /* BoatSchoolTests.swift */; };
 		866EEFA5260FCAFC00BA2689 /* BoatSchoolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EEFA4260FCAFC00BA2689 /* BoatSchoolUITests.swift */; };
+		86A7D570277160E5004DAFB2 /* StoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A7D56F277160E5004DAFB2 /* StoreVC.swift */; };
 		86C16F24261400A800914924 /* ReturnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C16F22261400A800914924 /* ReturnCell.swift */; };
 		86C16F25261400A800914924 /* ReturnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C16F23261400A800914924 /* ReturnCell.xib */; };
 		E7B825517E1C711B4589598E /* Pods_BoatSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3A352171F0F55D88403557 /* Pods_BoatSchool.framework */; };
@@ -80,6 +81,7 @@
 		866EEFA0260FCAFC00BA2689 /* BoatSchoolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatSchoolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		866EEFA4260FCAFC00BA2689 /* BoatSchoolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatSchoolUITests.swift; sourceTree = "<group>"; };
 		866EEFA6260FCAFC00BA2689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86A7D56F277160E5004DAFB2 /* StoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVC.swift; sourceTree = "<group>"; };
 		86C16F22261400A800914924 /* ReturnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnCell.swift; sourceTree = "<group>"; };
 		86C16F23261400A800914924 /* ReturnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReturnCell.xib; sourceTree = "<group>"; };
 		BA0C0F06C5D5D5E3F32816FD /* Pods-BoatSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoatSchool.debug.xcconfig"; path = "Target Support Files/Pods-BoatSchool/Pods-BoatSchool.debug.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				862FF65D2612889800213F94 /* QuestionsVC.swift */,
 				862FF658261271C700213F94 /* AuxBank.swift */,
 				15FF0666261BA0BD00DCD5F9 /* SubSectionVC.swift */,
+				86A7D56F277160E5004DAFB2 /* StoreVC.swift */,
 				866EEF88260FCAFA00BA2689 /* Main.storyboard */,
 				866EEF8D260FCAFC00BA2689 /* LaunchScreen.storyboard */,
 				866EEF8B260FCAFC00BA2689 /* Assets.xcassets */,
@@ -402,6 +405,7 @@
 				862FF64226112B6A00213F94 /* TableContentsVC.swift in Sources */,
 				15FF0667261BA0BD00DCD5F9 /* SubSectionVC.swift in Sources */,
 				862FF6652612A44B00213F94 /* QuestionCell.swift in Sources */,
+				86A7D570277160E5004DAFB2 /* StoreVC.swift in Sources */,
 				86C16F24261400A800914924 /* ReturnCell.swift in Sources */,
 				862FF66F2612A6A500213F94 /* AnswerCell.swift in Sources */,
 				15D3523426212AF6001E78B6 /* QuestionHeader.swift in Sources */,
