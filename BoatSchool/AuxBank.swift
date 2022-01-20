@@ -171,7 +171,7 @@ struct Contents {
         Section("Emergency Procedures",8911,8930)
     ]
     static var motorsSubs: [Section] = [
-        Section("Diesel Theory",8391,9013),
+        Section("Diesel Theory",8931,9013),
         Section("Two-Stroke Cycle",9014,9038),
         Section("Four-Stroke Cycle",9039,9047),
         Section("Firing Order, Timing",9048,9084),
