@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZx-9i-XWC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHd-FO-Ii2">
-                                <rect key="frame" x="20" y="20" width="280" height="160"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="DHd-FO-Ii2">
+                                <rect key="frame" x="5" y="5" width="310" height="190"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -34,11 +34,11 @@
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="DHd-FO-Ii2" firstAttribute="leading" secondItem="QZx-9i-XWC" secondAttribute="leading" constant="20" id="7j6-wG-nFy"/>
+                            <constraint firstItem="DHd-FO-Ii2" firstAttribute="leading" secondItem="QZx-9i-XWC" secondAttribute="leading" constant="5" id="7j6-wG-nFy"/>
                             <constraint firstAttribute="height" constant="200" id="9fX-8k-QNE"/>
-                            <constraint firstItem="DHd-FO-Ii2" firstAttribute="top" secondItem="QZx-9i-XWC" secondAttribute="top" constant="20" id="GOA-Ew-Yqa"/>
-                            <constraint firstAttribute="bottom" secondItem="DHd-FO-Ii2" secondAttribute="bottom" constant="20" id="WTD-UF-gri"/>
-                            <constraint firstAttribute="trailing" secondItem="DHd-FO-Ii2" secondAttribute="trailing" constant="20" id="Z6H-u1-NNV"/>
+                            <constraint firstItem="DHd-FO-Ii2" firstAttribute="top" secondItem="QZx-9i-XWC" secondAttribute="top" constant="5" id="GOA-Ew-Yqa"/>
+                            <constraint firstAttribute="bottom" secondItem="DHd-FO-Ii2" secondAttribute="bottom" constant="5" id="WTD-UF-gri"/>
+                            <constraint firstAttribute="trailing" secondItem="DHd-FO-Ii2" secondAttribute="trailing" constant="5" id="Z6H-u1-NNV"/>
                             <constraint firstAttribute="bottom" secondItem="qnw-76-waR" secondAttribute="bottom" constant="10" id="ezb-4b-n5c"/>
                             <constraint firstAttribute="trailing" secondItem="qnw-76-waR" secondAttribute="trailing" constant="10" id="jUp-Mg-m25"/>
                         </constraints>
