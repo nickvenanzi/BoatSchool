@@ -7,14 +7,13 @@
 
 import Foundation
 import UIKit
-import PassKit
 
 class SubSectionVC: UITableViewController {
     
     let cellReuseIdentifier = "subsectionCell"
     var subjects: [Section]
     let in4k: Bool
-    
+        
     init(_ titles: [Section], _ in4k: Bool) {
         subjects = titles
         self.in4k = in4k
@@ -45,10 +44,35 @@ class SubSectionVC: UITableViewController {
             if Keys.examsPurchased {
                 return
             }
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Purchase Exams", style: .plain, target: self, action: #selector(purchaseExamsAlert))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Purchase Exams", style: .plain, target: self, action: #selector(pullUpStore))
         } else {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Generate Test", style: .plain, target: self, action: #selector(purchaseTestGeneratorAlert))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Generate Test", style: .plain, target: self, action: #selector(clickedGenerateTest))
 
+        }
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        tableView.reloadData()
+        if TableContentsVC.subjectPicked == "Old Exams" && Keys.examsPurchased {
+            self.navigationItem.rightBarButtonItem = nil
+        }
+        if (refreshControl?.isRefreshing ?? false) {
+            refreshControl?.endRefreshing()
+        }
+    }
+    
+    @objc func pullUpStore() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StoreVC")
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func clickedGenerateTest() {
+        if Keys.testGeneratorPurchased {
+            generateTestAlert()
+        } else {
+            pullUpStore()
         }
     }
     
@@ -73,7 +97,7 @@ class SubSectionVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // if exams not payed for, prompt purchase option
         if !Keys.examsPurchased && TableContentsVC.subjectPicked == "Old Exams" {
-            purchaseExamsAlert()
+            pullUpStore()
             tableView.deselectRow(at: indexPath, animated: true)
             return
         }
@@ -119,100 +143,4 @@ class SubSectionVC: UITableViewController {
         navigationController?.pushViewController(QuestionsVC(Array(questionsToInclude).sorted()), animated: true)
     }
     
-}
-
-extension SubSectionVC: PKPaymentAuthorizationViewControllerDelegate {
-    
-    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
-        controller.dismiss(animated: true) {}
-    }
-    
-    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
-        // determine which payment was authorized:
-        if TableContentsVC.subjectPicked == "Old Exams" {
-            Keys.examsPurchased = true
-            self.navigationItem.rightBarButtonItem = nil
-            tableView.reloadData()
-        } else {
-            Keys.testGeneratorPurchased = true
-        }
-        return completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
-    }
-    
-    /*
-     ------------------------- Exam Purchase Processing ---------------------------------
-     */
-    
-    private var examsRequest: PKPaymentRequest {
-        let request = PKPaymentRequest()
-        request.merchantIdentifier = "merchant.BeepBoopBop"
-        request.supportedNetworks = [.masterCard,.amex,.visa,.discover]
-        request.supportedCountries = ["US"]
-        request.merchantCapabilities = .capability3DS
-        request.countryCode = "US"
-        request.currencyCode = "USD"
-        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Old Exams", amount: 9.99)]
-        return request
-    }
-    
-    @objc func purchaseExamsAlert() {
-        let alert = UIAlertController(title: "Purchase Exams", message: "Would you like to pay $9.99 to get access to all of the old exams?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-        alert.addAction(UIAlertAction(title: "Purchase", style: .default, handler: { _ in
-            self.purchaseExams()
-        }))
-        present(alert, animated: true)
-    }
-    
-    private func purchaseExams() {
-        guard let paymentController = PKPaymentAuthorizationViewController(paymentRequest: examsRequest) else {
-            let alert = UIAlertController(title: "Payment Configuration Failed", message: "Try again later", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-            present(alert, animated: true)
-            return
-        }
-        paymentController.delegate = self
-        present(paymentController, animated: true)
-    }
-    
-    /*
-     ------------------------- Generator Purchase Processing ---------------------------------
-     */
-    
-    private var generatorRequest: PKPaymentRequest {
-        let request = PKPaymentRequest()
-        request.merchantIdentifier = "merchant.BeepBoopBop"
-        request.supportedNetworks = [.masterCard,.amex,.visa,.discover]
-        request.supportedCountries = ["US"]
-        request.merchantCapabilities = .capability3DS
-        request.countryCode = "US"
-        request.currencyCode = "USD"
-        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Test Generator", amount: 4.99)]
-        return request
-    }
-    
-    @objc func purchaseTestGeneratorAlert() {
-        if Keys.testGeneratorPurchased {
-            generateTestAlert()
-            return
-        }
-        let alert = UIAlertController(title: "Purchase Test Generator", message: "Would you like to pay $4.99 to get randomly generated practice exams to study from? Note: This purchase will give access to all subsection Test Generators.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-        alert.addAction(UIAlertAction(title: "Purchase", style: .default, handler: { _ in
-            self.purchaseTestGenerator()
-        }))
-        present(alert, animated: true)
-    }
-    
-    private func purchaseTestGenerator() {
-        guard let paymentController = PKPaymentAuthorizationViewController(paymentRequest: generatorRequest) else {
-            let alert = UIAlertController(title: "Payment Configuration Failed", message: "Try again later", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-            present(alert, animated: true)
-            return
-        }
-        paymentController.delegate = self
-        present(paymentController, animated: true)
-    }
-
 }

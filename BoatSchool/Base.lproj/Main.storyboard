@@ -74,7 +74,7 @@
         <!--StoreVC-->
         <scene sceneID="6wL-xr-8zk">
             <objects>
-                <viewController id="bad-7K-HWt" customClass="StoreVC" customModule="BoatSchool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoreVC" id="bad-7K-HWt" customClass="StoreVC" customModule="BoatSchool" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A6U-VG-Ehi">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,29 +83,32 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Jf7-jm-QdN">
-                                <rect key="frame" x="30" y="276.66666666666663" width="368" height="318.66666666666663"/>
+                                <rect key="frame" x="30" y="339" width="368" height="194"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kvn-JW-jUT">
-                                        <rect key="frame" x="0.0" y="0.0" width="368" height="68.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="368" height="57.333333333333336"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Oe0-IA-Xin">
-                                                <rect key="frame" x="0.0" y="0.0" width="368" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="368" height="37"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Exams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3RS-6n-pmB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="195.66666666666666" height="48"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="152.66666666666666" height="37"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as7-zu-gOq">
-                                                        <rect key="frame" x="306" y="8.6666666666666288" width="62" height="31"/>
+                                                        <rect key="frame" x="306" y="3" width="62" height="31"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="$2.99"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="$9.99"/>
+                                                        <connections>
+                                                            <action selector="purchaseOldExams:" destination="bad-7K-HWt" eventType="touchUpInside" id="hYa-Kc-krB"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get access to previously released exams " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSr-lA-qiL">
-                                                <rect key="frame" x="0.0" y="48" width="368" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="37" width="368" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -113,53 +116,29 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="85n-Mg-z6y">
-                                        <rect key="frame" x="0.0" y="82.333333333333314" width="368" height="88.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="71.333333333333314" width="368" height="77.666666666666686"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="b42-0f-meG">
-                                                <rect key="frame" x="0.0" y="0.0" width="368" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="368" height="37"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generate Tests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wEZ-eY-Svd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="279" height="48"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="217.66666666666666" height="37"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgQ-4h-PUm">
-                                                        <rect key="frame" x="306" y="8.6666666666666856" width="62" height="31"/>
+                                                        <rect key="frame" x="305.66666666666669" y="3" width="62.333333333333314" height="31"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="$2.99"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="$4.99"/>
+                                                        <connections>
+                                                            <action selector="purchaseTestGenerator:" destination="bad-7K-HWt" eventType="touchUpInside" id="Cdg-Sb-AWS"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generate tests with both 20 and 70 questions to practice" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7s-ez-yNm">
-                                                <rect key="frame" x="0.0" y="48" width="368" height="40.666666666666657"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qrf-TM-6GV">
-                                        <rect key="frame" x="0.0" y="185" width="368" height="88.666666666666686"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3dW-Ok-dKP">
-                                                <rect key="frame" x="0.0" y="0.0" width="368" height="48"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reduced Bank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uEe-4b-qAL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="266.66666666666669" height="48"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7XA-Ru-kI1">
-                                                        <rect key="frame" x="306" y="8.6666666666666288" width="62" height="31"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="$2.99"/>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Study using a smaller bank based on the 3rd Assitant Engineers license" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yM5-ny-CbO">
-                                                <rect key="frame" x="0.0" y="48" width="368" height="40.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="37" width="368" height="40.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -167,11 +146,14 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NZp-Wf-mN6">
-                                        <rect key="frame" x="0.0" y="287.66666666666669" width="368" height="31"/>
+                                        <rect key="frame" x="0.0" y="163" width="368" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLk-Zl-218">
                                                 <rect key="frame" x="0.0" y="0.0" width="368" height="31"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Restore"/>
+                                                <connections>
+                                                    <action selector="restorePurchase:" destination="bad-7K-HWt" eventType="touchUpInside" id="5ds-QF-Jg1"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -199,16 +181,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buyButtonOne" destination="as7-zu-gOq" id="KlO-lC-Pvx"/>
-                        <outlet property="buyButtonThree" destination="7XA-Ru-kI1" id="06h-0j-omM"/>
-                        <outlet property="buyButtonTwo" destination="XgQ-4h-PUm" id="JCM-M5-CaA"/>
-                        <outlet property="restoreButton" destination="tLk-Zl-218" id="STm-M2-z3I"/>
-                        <outlet property="storeDescriptionOne" destination="aSr-lA-qiL" id="hB1-Cp-BOB"/>
-                        <outlet property="storeDescriptionThree" destination="yM5-ny-CbO" id="vNt-WR-7xg"/>
-                        <outlet property="storeDescriptionTwo" destination="k7s-ez-yNm" id="NWf-co-lry"/>
-                        <outlet property="storeLabelOne" destination="3RS-6n-pmB" id="Ghh-4n-jRh"/>
-                        <outlet property="storeLabelThree" destination="uEe-4b-qAL" id="6iN-Bb-fbl"/>
-                        <outlet property="storeLabelTwo" destination="wEZ-eY-Svd" id="MHN-mT-e3N"/>
+                        <outlet property="oldExamsButton" destination="as7-zu-gOq" id="pBg-eY-QZ9"/>
+                        <outlet property="restoreButton" destination="tLk-Zl-218" id="Rua-tL-hIf"/>
+                        <outlet property="testGeneratorButton" destination="XgQ-4h-PUm" id="7Sv-Y3-8G9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xee-N8-Tt4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -321,7 +321,7 @@ struct Contents {
         Section("Computers and Computer Networks",14407,14427)
     ]
     static var refrigerationSubs: [Section] = [
-        Section("Theory, Heat Transfer",3257,3572),
+        Section("Theory, Heat Transfer",3527,3572),
         Section("Refrigeration Cycle",3573,3620),
         Section("Air Conditioning",3621,3673),
         Section("HVAC Systems",3674,3741),
