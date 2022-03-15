@@ -3,6 +3,12 @@ PODS:
     - XMLCoder (~> 0.11.1)
     - ZIPFoundation (~> 0.9.11)
   - InjectableLoggers (2.1.1)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
   - XMLCoder (0.11.1)
   - ZIPFoundation (0.9.13)
   - Zoomy (4.0.0):
@@ -10,12 +16,17 @@ PODS:
 
 DEPENDENCIES:
   - CoreXLSX
+  - RxCocoa (= 6.5.0)
+  - RxSwift (= 6.5.0)
   - Zoomy
 
 SPEC REPOS:
   trunk:
     - CoreXLSX
     - InjectableLoggers
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - XMLCoder
     - ZIPFoundation
     - Zoomy
@@ -23,10 +34,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   CoreXLSX: f9a7a70b509150ceb675b05877b7ac041a587030
   InjectableLoggers: 7bc1a68fb12d73785d3d50944a3f1744a8cea868
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   XMLCoder: c4638336674de7ba279cd23f2005817d69f538e0
   ZIPFoundation: ae5b4b813d216d3bf0a148773267fff14bd51d37
   Zoomy: 598d7a6d52567e4f8bf2e557907bbd9d7e725664
 
-PODFILE CHECKSUM: 270948bd6aa7b55b459b9fcd713a5d9b149fe610
+PODFILE CHECKSUM: 68051b13988358b0091240e3db803dffb7fc5402
 
 COCOAPODS: 1.10.0

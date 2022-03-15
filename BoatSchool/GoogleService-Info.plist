@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>278649094801-t8a782aekbfmpoje3imm7apg4hsrmntn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.278649094801-t8a782aekbfmpoje3imm7apg4hsrmntn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAyR6CWYC6Cx25ay72EUWe4snLV3NrHdlQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>278649094801</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Venanzi.BoatSchool</string>
+	<key>PROJECT_ID</key>
+	<string>boatschool-7d127</string>
+	<key>STORAGE_BUCKET</key>
+	<string>boatschool-7d127.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:278649094801:ios:d0a45d2fa4194d9a3d7530</string>
+</dict>
+</plist>

@@ -181,9 +181,6 @@ class TableContentsVC: UITableViewController, UISearchBarDelegate {
 
 
     }
-    @objc func presentStoreVC(){
-        navigationController?.pushViewController(StoreVC(), animated: true)
-    }
     
 
     @objc func dismissKeyboard() {

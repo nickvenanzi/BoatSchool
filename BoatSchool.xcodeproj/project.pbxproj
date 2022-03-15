@@ -3,13 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		151BD2F426363E0500522C16 /* questionsToIDs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 151BD2F326363E0500522C16 /* questionsToIDs.csv */; };
 		151BD2FE26363E1C00522C16 /* bank.csv in Resources */ = {isa = PBXBuildFile; fileRef = 151BD2FD26363E1C00522C16 /* bank.csv */; };
 		1531DA35264C4FE2009FDD3D /* matches.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1531DA34264C4FE2009FDD3D /* matches.csv */; };
+		15CC6C4527C1650D00AD84F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15CC6C4427C1650C00AD84F5 /* GoogleService-Info.plist */; };
+		15CC6C4827C1660200AD84F5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 15CC6C4727C1660200AD84F5 /* FirebaseAnalytics */; };
+		15CC6C4A27C1660200AD84F5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 15CC6C4927C1660200AD84F5 /* FirebaseCrashlytics */; };
+		15CC6C4C27C16AFE00AD84F5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15CC6C4B27C16AFE00AD84F5 /* StoreKit.framework */; };
+		15CC6C4E27C16C4800AD84F5 /* InAppPurchaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CC6C4D27C16C4800AD84F5 /* InAppPurchaseHandler.swift */; };
+		15CC6C5027C1842400AD84F5 /* StoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CC6C4F27C1842400AD84F5 /* StoreVC.swift */; };
 		15D3523426212AF6001E78B6 /* QuestionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3523226212AF6001E78B6 /* QuestionHeader.swift */; };
 		15D3523526212AF6001E78B6 /* QuestionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D3523326212AF6001E78B6 /* QuestionHeader.xib */; };
 		15FF0667261BA0BD00DCD5F9 /* SubSectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FF0666261BA0BD00DCD5F9 /* SubSectionVC.swift */; };
@@ -28,7 +34,6 @@
 		866EEF8F260FCAFC00BA2689 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866EEF8D260FCAFC00BA2689 /* LaunchScreen.storyboard */; };
 		866EEF9A260FCAFC00BA2689 /* BoatSchoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EEF99260FCAFC00BA2689 /* BoatSchoolTests.swift */; };
 		866EEFA5260FCAFC00BA2689 /* BoatSchoolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EEFA4260FCAFC00BA2689 /* BoatSchoolUITests.swift */; };
-		86A7D570277160E5004DAFB2 /* StoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A7D56F277160E5004DAFB2 /* StoreVC.swift */; };
 		86C16F24261400A800914924 /* ReturnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C16F22261400A800914924 /* ReturnCell.swift */; };
 		86C16F25261400A800914924 /* ReturnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C16F23261400A800914924 /* ReturnCell.xib */; };
 		E7B825517E1C711B4589598E /* Pods_BoatSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3A352171F0F55D88403557 /* Pods_BoatSchool.framework */; };
@@ -56,6 +61,10 @@
 		151BD2FD26363E1C00522C16 /* bank.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bank.csv; sourceTree = "<group>"; };
 		1531DA34264C4FE2009FDD3D /* matches.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = matches.csv; sourceTree = "<group>"; };
 		155E2DC326517C3300A989AA /* BoatSchool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatSchool.entitlements; sourceTree = "<group>"; };
+		15CC6C4427C1650C00AD84F5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		15CC6C4B27C16AFE00AD84F5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		15CC6C4D27C16C4800AD84F5 /* InAppPurchaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseHandler.swift; sourceTree = "<group>"; };
+		15CC6C4F27C1842400AD84F5 /* StoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreVC.swift; sourceTree = "<group>"; };
 		15D3523226212AF6001E78B6 /* QuestionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionHeader.swift; sourceTree = "<group>"; };
 		15D3523326212AF6001E78B6 /* QuestionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionHeader.xib; sourceTree = "<group>"; };
 		15FF0666261BA0BD00DCD5F9 /* SubSectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionVC.swift; sourceTree = "<group>"; };
@@ -81,7 +90,6 @@
 		866EEFA0260FCAFC00BA2689 /* BoatSchoolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatSchoolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		866EEFA4260FCAFC00BA2689 /* BoatSchoolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatSchoolUITests.swift; sourceTree = "<group>"; };
 		866EEFA6260FCAFC00BA2689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		86A7D56F277160E5004DAFB2 /* StoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVC.swift; sourceTree = "<group>"; };
 		86C16F22261400A800914924 /* ReturnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnCell.swift; sourceTree = "<group>"; };
 		86C16F23261400A800914924 /* ReturnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReturnCell.xib; sourceTree = "<group>"; };
 		BA0C0F06C5D5D5E3F32816FD /* Pods-BoatSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoatSchool.debug.xcconfig"; path = "Target Support Files/Pods-BoatSchool/Pods-BoatSchool.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,7 +101,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15CC6C4A27C1660200AD84F5 /* FirebaseCrashlytics in Frameworks */,
+				15CC6C4827C1660200AD84F5 /* FirebaseAnalytics in Frameworks */,
 				E7B825517E1C711B4589598E /* Pods_BoatSchool.framework in Frameworks */,
+				15CC6C4C27C16AFE00AD84F5 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +139,7 @@
 		3F588C7DE628D525AE41E588 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				15CC6C4B27C16AFE00AD84F5 /* StoreKit.framework */,
 				5D3A352171F0F55D88403557 /* Pods_BoatSchool.framework */,
 			);
 			name = Frameworks;
@@ -182,12 +194,13 @@
 		866EEF81260FCAFA00BA2689 /* BoatSchool */ = {
 			isa = PBXGroup;
 			children = (
+				15CC6C4427C1650C00AD84F5 /* GoogleService-Info.plist */,
 				155E2DC326517C3300A989AA /* BoatSchool.entitlements */,
 				862FF64126112B6A00213F94 /* TableContentsVC.swift */,
 				862FF65D2612889800213F94 /* QuestionsVC.swift */,
 				862FF658261271C700213F94 /* AuxBank.swift */,
+				15CC6C4F27C1842400AD84F5 /* StoreVC.swift */,
 				15FF0666261BA0BD00DCD5F9 /* SubSectionVC.swift */,
-				86A7D56F277160E5004DAFB2 /* StoreVC.swift */,
 				866EEF88260FCAFA00BA2689 /* Main.storyboard */,
 				866EEF8D260FCAFC00BA2689 /* LaunchScreen.storyboard */,
 				866EEF8B260FCAFC00BA2689 /* Assets.xcassets */,
@@ -196,6 +209,7 @@
 				866EEF90260FCAFC00BA2689 /* Info.plist */,
 				862FF6622612A40F00213F94 /* Cells */,
 				15FF0697261F4A0600DCD5F9 /* QuestionAssets */,
+				15CC6C4D27C16C4800AD84F5 /* InAppPurchaseHandler.swift */,
 			);
 			path = BoatSchool;
 			sourceTree = "<group>";
@@ -236,6 +250,10 @@
 			dependencies = (
 			);
 			name = BoatSchool;
+			packageProductDependencies = (
+				15CC6C4727C1660200AD84F5 /* FirebaseAnalytics */,
+				15CC6C4927C1660200AD84F5 /* FirebaseCrashlytics */,
+			);
 			productName = BoatSchool;
 			productReference = 866EEF7F260FCAFA00BA2689 /* BoatSchool.app */;
 			productType = "com.apple.product-type.application";
@@ -307,6 +325,9 @@
 				Base,
 			);
 			mainGroup = 866EEF76260FCAFA00BA2689;
+			packageReferences = (
+				15CC6C4627C1660200AD84F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 866EEF80260FCAFA00BA2689 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,6 +349,7 @@
 				151BD2F426363E0500522C16 /* questionsToIDs.csv in Resources */,
 				866EEF8C260FCAFC00BA2689 /* Assets.xcassets in Resources */,
 				862FF6662612A44B00213F94 /* QuestionCell.xib in Resources */,
+				15CC6C4527C1650D00AD84F5 /* GoogleService-Info.plist in Resources */,
 				1531DA35264C4FE2009FDD3D /* matches.csv in Resources */,
 				866EEF8A260FCAFA00BA2689 /* Main.storyboard in Resources */,
 				15D3523526212AF6001E78B6 /* QuestionHeader.xib in Resources */,
@@ -402,10 +424,11 @@
 			files = (
 				866EEF83260FCAFA00BA2689 /* AppDelegate.swift in Sources */,
 				862FF65E2612889800213F94 /* QuestionsVC.swift in Sources */,
+				15CC6C4E27C16C4800AD84F5 /* InAppPurchaseHandler.swift in Sources */,
 				862FF64226112B6A00213F94 /* TableContentsVC.swift in Sources */,
 				15FF0667261BA0BD00DCD5F9 /* SubSectionVC.swift in Sources */,
 				862FF6652612A44B00213F94 /* QuestionCell.swift in Sources */,
-				86A7D570277160E5004DAFB2 /* StoreVC.swift in Sources */,
+				15CC6C5027C1842400AD84F5 /* StoreVC.swift in Sources */,
 				86C16F24261400A800914924 /* ReturnCell.swift in Sources */,
 				862FF66F2612A6A500213F94 /* AnswerCell.swift in Sources */,
 				15D3523426212AF6001E78B6 /* QuestionHeader.swift in Sources */,
@@ -589,7 +612,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BoatSchool/BoatSchool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = LT3MWZH387;
 				INFOPLIST_FILE = BoatSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -615,7 +638,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BoatSchool/BoatSchool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = LT3MWZH387;
 				INFOPLIST_FILE = BoatSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -757,6 +780,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		15CC6C4627C1660200AD84F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		15CC6C4727C1660200AD84F5 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15CC6C4627C1660200AD84F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		15CC6C4927C1660200AD84F5 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15CC6C4627C1660200AD84F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 866EEF77260FCAFA00BA2689 /* Project object */;
 }

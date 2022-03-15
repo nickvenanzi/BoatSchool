@@ -177,6 +177,9 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CoreXLSX/CoreXLSX.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/InjectableLoggers/InjectableLoggers.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XMLCoder/XMLCoder.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ZIPFoundation/ZIPFoundation.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Zoomy/Zoomy.framework"
@@ -184,6 +187,9 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CoreXLSX/CoreXLSX.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/InjectableLoggers/InjectableLoggers.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XMLCoder/XMLCoder.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ZIPFoundation/ZIPFoundation.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Zoomy/Zoomy.framework"

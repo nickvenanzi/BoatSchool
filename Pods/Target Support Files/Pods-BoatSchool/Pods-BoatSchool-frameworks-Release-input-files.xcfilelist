@@ -1,6 +1,9 @@
 ${PODS_ROOT}/Target Support Files/Pods-BoatSchool/Pods-BoatSchool-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/CoreXLSX/CoreXLSX.framework
 ${BUILT_PRODUCTS_DIR}/InjectableLoggers/InjectableLoggers.framework
+${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
+${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
+${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
 ${BUILT_PRODUCTS_DIR}/XMLCoder/XMLCoder.framework
 ${BUILT_PRODUCTS_DIR}/ZIPFoundation/ZIPFoundation.framework
 ${BUILT_PRODUCTS_DIR}/Zoomy/Zoomy.framework
