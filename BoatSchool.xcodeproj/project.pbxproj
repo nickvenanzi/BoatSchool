@@ -612,7 +612,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BoatSchool/BoatSchool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LT3MWZH387;
 				INFOPLIST_FILE = BoatSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -620,7 +620,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2.1;
 				OFFERING_APPLE_PAY_BUNDLE_PREFIX = Venanzi.BoatSchool;
 				PRODUCT_BUNDLE_IDENTIFIER = Venanzi.BoatSchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -638,7 +638,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BoatSchool/BoatSchool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LT3MWZH387;
 				INFOPLIST_FILE = BoatSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -646,7 +646,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2.1;
 				OFFERING_APPLE_PAY_BUNDLE_PREFIX = Venanzi.BoatSchool;
 				PRODUCT_BUNDLE_IDENTIFIER = Venanzi.BoatSchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
