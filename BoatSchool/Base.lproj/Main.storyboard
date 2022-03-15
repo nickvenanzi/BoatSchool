@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zmz-M3-nwy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9iW-na-Yib">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -161,7 +162,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfh-4b-ZKW">
-                                <rect key="frame" x="20" y="20" width="141" height="60"/>
+                                <rect key="frame" x="20" y="64" width="141" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -190,6 +191,45 @@
             </objects>
             <point key="canvasLocation" x="-1479" y="1077"/>
         </scene>
+        <!--Loading ScreenVC-->
+        <scene sceneID="iHZ-H5-bfO">
+            <objects>
+                <viewController id="9iW-na-Yib" customClass="LoadingScreenVC" customModule="BoatSchool" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TIi-2p-aXT">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BSBackground" translatesAutoresizingMaskIntoConstraints="NO" id="rfc-tz-XJH">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Propellor" translatesAutoresizingMaskIntoConstraints="NO" id="Qyk-EF-dhC">
+                                <rect key="frame" x="20" y="269" width="388" height="388"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qyk-EF-dhC" secondAttribute="height" id="0DI-P7-3zH"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bvv-kx-aes"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rfc-tz-XJH" firstAttribute="leading" secondItem="bvv-kx-aes" secondAttribute="leading" id="0LW-Mm-g41"/>
+                            <constraint firstItem="Qyk-EF-dhC" firstAttribute="centerY" secondItem="TIi-2p-aXT" secondAttribute="centerY" id="DUw-Rd-01y"/>
+                            <constraint firstItem="bvv-kx-aes" firstAttribute="trailing" secondItem="Qyk-EF-dhC" secondAttribute="trailing" constant="20" id="IXa-nk-xCK"/>
+                            <constraint firstItem="Qyk-EF-dhC" firstAttribute="leading" secondItem="bvv-kx-aes" secondAttribute="leading" constant="20" id="Vls-eP-H3j"/>
+                            <constraint firstItem="Qyk-EF-dhC" firstAttribute="centerX" secondItem="TIi-2p-aXT" secondAttribute="centerX" id="c3e-Pd-4BI"/>
+                            <constraint firstItem="rfc-tz-XJH" firstAttribute="top" secondItem="TIi-2p-aXT" secondAttribute="top" id="em5-fE-lCf"/>
+                            <constraint firstAttribute="bottom" secondItem="rfc-tz-XJH" secondAttribute="bottom" id="gSG-dq-Hq2"/>
+                            <constraint firstItem="bvv-kx-aes" firstAttribute="trailing" secondItem="rfc-tz-XJH" secondAttribute="trailing" id="sgc-Po-44W"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="propellorImage" destination="Qyk-EF-dhC" id="Ijw-9c-TNA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XPv-rT-jPl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3343" y="329"/>
+        </scene>
         <!--Library-->
         <scene sceneID="A9J-OT-PXo">
             <objects>
@@ -217,6 +257,10 @@
     </scenes>
     <resources>
         <image name="BSBackground" width="375" height="812"/>
+        <image name="Propellor" width="425" height="420"/>
         <image name="books.vertical" catalog="system" width="128" height="107"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

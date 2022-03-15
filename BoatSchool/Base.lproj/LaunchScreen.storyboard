@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,11 +14,17 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BoatSchool Background Final" translatesAutoresizingMaskIntoConstraints="NO" id="54g-19-Ba9">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BSBackground" translatesAutoresizingMaskIntoConstraints="NO" id="54g-19-Ba9">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Propellor" translatesAutoresizingMaskIntoConstraints="NO" id="Usq-aC-lhT">
+                                <rect key="frame" x="20" y="269" width="388" height="388"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Usq-aC-lhT" secondAttribute="height" id="bNv-Vt-rRF"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -25,8 +32,12 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="54g-19-Ba9" secondAttribute="bottom" id="6ZP-B2-OKk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="54g-19-Ba9" secondAttribute="trailing" id="CIN-Ut-JrG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Usq-aC-lhT" secondAttribute="trailing" constant="20" id="GgX-Bu-naF"/>
+                            <constraint firstItem="Usq-aC-lhT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LZP-S9-ypW"/>
+                            <constraint firstItem="Usq-aC-lhT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="X2V-Wc-hiY"/>
                             <constraint firstItem="54g-19-Ba9" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="diO-kV-9mS"/>
                             <constraint firstItem="54g-19-Ba9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gBZ-eY-gMD"/>
+                            <constraint firstItem="Usq-aC-lhT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gMZ-DF-bcH"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,7 +47,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BoatSchool Background Final" width="375" height="812"/>
+        <image name="BSBackground" width="375" height="812"/>
+        <image name="Propellor" width="425" height="420"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
